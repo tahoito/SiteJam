@@ -1,8 +1,28 @@
 ---
-const { id } = Astro.props;
+const heroImg = "/images/hero.jpg"; 
 ---
 
-<section id={id} class="rounded-3xl border border-zinc-200 p-6">
-  <h2 class="font-semibold">Home</h2>
-  <p class="mt-3 text-zinc-700">ファーストビュー</p>
+<section
+  id="top"
+  class="w- bg-[linear-gradient(180deg,#FAF4E3_0.98%,#F5E4E3_6.88%,#F5E4E3_88.27%,#FAF4E3_98.21%)]"
+>
+  <div class="w-full h-[807px] px-[120px] py-[11px] flex items-start pt-[123px]">
+    <div class="grid items-center gap-10 md:grid-cols-2">
+      <div>
+        <h1 class="text-6xl leading-[1.18]">
+          ゆるく、楽しく<br />
+          奈々の<br />
+          ポートフォリオ
+        </h1>
+
+        <p class="mt-20 text-5xl text-text font-chiru ">
+          寝て、忘れよう。
+        </p>
+      </div>
+
+      <div class="flex justify-end">
+        
+      </div>
+    </div>
+  </div>
 </section>
