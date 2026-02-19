@@ -1,28 +1,52 @@
 ---
-const heroImg = "/images/hero.jpg"; 
+const top = "/images/top.jpeg";
+import Character from "/src/assets/character.svg";
 ---
 
 <section
   id="top"
-  class="w- bg-[linear-gradient(180deg,#FAF4E3_0.98%,#F5E4E3_6.88%,#F5E4E3_88.27%,#FAF4E3_98.21%)]"
+  class="w-full bg-[linear-gradient(180deg,#FAF4E3_0.98%,#F5E4E3_6.88%,#F5E4E3_88.27%,#FAF4E3_98.21%)]"
 >
-  <div class="w-full h-[807px] px-[120px] py-[11px] flex items-start pt-[123px]">
-    <div class="grid items-center gap-10 md:grid-cols-2">
-      <div>
-        <h1 class="text-6xl leading-[1.18]">
+  <div class="w-full px-[120px] py-[11px]">
+    <div class="relative h-[807px] pt-[100px]">
+      <div class="max-w-[730px]">
+        <h1 class="text-7xl leading-[1.5] font-medium">
           ゆるく、楽しく<br />
           奈々の<br />
           ポートフォリオ
         </h1>
 
-        <p class="mt-20 text-5xl text-text font-chiru ">
+        <p class="mt-20 text-[48px] text-text font-chiru">
           寝て、忘れよう。
         </p>
       </div>
 
-      <div class="flex justify-end">
-        
+      <div class="absolute right-0 top-[70px] w-[699px] h-[572px]">
+        <div class="relative w-full h-full">
+          <div class="blob w-full h-full overflow-hidden">
+            <img src={top} alt="Hero Image" class="w-full h-full object-cover" />
+          </div>
+
+          <div class="absolute left-0 bottom-0 rotate-[-11.427deg] z-10 pointer-events-none">
+            <Character class="h-full w-full" />
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
+
+<style>
+  .blob {
+    border-radius: 58% 42% 65% 35% / 40% 60% 45% 55%;
+    animation: blobMove 7s ease-in-out infinite;
+    overflow: hidden;
+  }
+  @keyframes blobMove {
+    0% { border-radius: 58% 42% 65% 35% / 40% 60% 45% 55%; }
+    25% { border-radius: 40% 60% 35% 65% / 55% 45% 60% 40%; }
+    50% { border-radius: 65% 35% 50% 50% / 45% 55% 40% 60%; }
+    75% { border-radius: 50% 50% 60% 40% / 60% 40% 55% 45%; }
+    100% { border-radius: 58% 42% 65% 35% / 40% 60% 45% 55%; }
+  }
+</style>
