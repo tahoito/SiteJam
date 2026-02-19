@@ -1,8 +1,12 @@
 ---
+import SectionTitle from "../ui/SectionTitle.astro";
+import SubTitle from "../ui/SubTitle.astro";
 const { id } = Astro.props;
 ---
 
-<section id={id} class="rounded-3xl border border-zinc-200 p-6">
-  <h2 class="font-semibold">About</h2>
-  <p class="mt-3 text-zinc-700">ここに自己紹介とかを入れる</p>
+<section id={id}>
+  <SectionTitle text="About" />
+  <SubTitle text="自己紹介" />
+  <SubTitle text="趣味・特技" />
+
 </section>
