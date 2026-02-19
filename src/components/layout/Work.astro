@@ -1,0 +1,13 @@
+---
+import SectionTitle from "../ui/SectionTitle.astro";
+import SubTitle from "../ui/SubTitle.astro";
+const { id } = Astro.props;
+---
+
+<section id={id}>
+  <SectionTitle text="Work" />
+  <SubTitle text="今の仕事" />
+  <SubTitle text="1日のスケジュール" />
+  <SubTitle text="これまでの歩み" />
+  <SubTitle text="中山さんの好きなところ ベスト3" />
+</section>

@@ -1,7 +1,17 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Chiru";
+  src: url("/fonts/chirufont.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+
 @theme {
   --font-sans: "Zen Maru Gothic", system-ui, sans-serif;
+  --font-chiru: "Chiru", "Zen Maru Gothic", sans-serif;
  
   --color-main: #F5E4E3;
   --color-base: #FAF4E3;
