@@ -1,0 +1,36 @@
+---
+interface Props {
+  text?: string;
+  className?: string;
+}
+import { Star } from "lucide-astro";
+
+interface Props {
+  year: string;
+  title: string;
+  contentText: string;
+}
+
+const { year, title, contentText } = Astro.props;
+---
+
+<div class="flex justify-center items-center w-fit">
+    <div class="w-[162px] h-auto bg-base opacity-90">
+        <p class="text-text text-[1.6rem]">{contentText}</p>
+    </div>
+    <div class={`relative w-[140px] h-[208px]`}>
+    <svg xmlns="http://www.w3.org/2000/svg" width="140" height="208" viewBox="0 0 140 208" fill="none" class="absolute inset-0">
+        <circle cx="70" cy="70" r="70" fill="#F9F6F4"/>
+        <path d="M140 70C140 108.66 108.66 140 70 140C31.3401 140 0 108.66 0 70C0 31.3401 31.3401 0 70 0C108.66 0 140 31.3401 140 70ZM15.0905 70C15.0905 100.326 39.6743 124.909 70 124.909C100.326 124.909 124.909 100.326 124.909 70C124.909 39.6743 100.326 15.0905 70 15.0905C39.6743 15.0905 15.0905 39.6743 15.0905 70Z" fill="#FEE088"/>
+        <path d="M77.1318 202.962C74.1672 208.797 65.8328 208.797 62.8682 202.962L20.4189 119.411C33.0931 132.129 50.6268 140 70 140C89.3732 140 106.907 132.129 119.581 119.411L98.3564 161.187L77.1318 202.962Z" fill="#FEE088"/>
+    </svg>
+    <span class="absolute top-[70px] left-1/2 -translate-x-1/2 -translate-y-1/2 text-text text-[2rem] whitespace-nowrap">
+        <div class="flex justify-center items-center">
+            <Star class="w-[28px] fill-black"/>
+            {year}
+        </div>
+        <p class="text-center text-[2rem] text-text">{title}</p>
+    </span>
+    </div>
+</div>
+
