@@ -5,6 +5,9 @@ const { id } = Astro.props;
 import AboutPic from "/src/assets/about.svg";
 import AboutFrame from "/src/assets/about_frame.svg";
 import Flower from "/src/assets/flower_pink.svg";
+const commedy = "/images/comedy.png";
+const camera = "/images/camera.png";
+const jumprope = "/images/jumprope.png";
 ---
 
 <section id={id} class="mt-6">
@@ -48,8 +51,58 @@ import Flower from "/src/assets/flower_pink.svg";
       </div>
     </div>
 
-    <div>
+    <div class="py-5">
       <SubTitle text="趣味・特技" />
+      <div class="py-5 grid grid-cols-3 gap-6 mb-2">
+        <div class="relative">
+          <div class="relative rounded-[20px] bg-main px-6 py-8">
+            <div class="flex items-start justify-between gap-2">
+              <div class="min-w-0">
+                <div class="text-xl font-chiru text-text">お笑い</div>
+                <p class="text-[16px]">高校時代、演劇部で脚本を書いてて、その頃からコントを見るのが好きです。</p>
+              </div>
+              <img
+                src={commedy}
+                alt="comedy"
+                class="pointer-events-none shrink-0 opacity-90"
+              />
+            </div>
+          </div>
+          <div class="absolute z-10 inset-0 translate-x-2 translate-y-2 rounded-[24px] border border-[#959595] bg-transparent"></div>
+        </div>
+        <div class="relative">
+          <div class="relative rounded-[20px] bg-main px-6 py-8">
+            <div class="flex items-start justify-between gap-2">
+              <div class="min-w-0">
+                <div class="text-xl font-chiru text-text">アニメ映画鑑賞</div>
+                <p class="text-[16px]">時間があるときは、家でアニメ映画や流行してる映画を見てます。</p>
+              </div>
+              <img
+                src={camera}
+                alt="comedy"
+                class="pointer-events-none shrink-0 opacity-90"
+              />
+            </div>
+          </div>
+          <div class="absolute z-10 inset-0 translate-x-2 translate-y-2 rounded-[24px] border border-[#959595] bg-transparent"></div>
+        </div>
+        <div class="relative">
+          <div class="relative rounded-[20px] bg-main px-6 py-8">
+            <div class="flex items-start justify-between gap-2">
+              <div class="min-w-0">
+                <div class="text-xl font-chiru text-text">縄跳び</div>
+                <p class="text-[16px]">小学校の頃、鉄棒が嫌いな反動で好きになって、今では特技です。</p>
+              </div>
+              <img
+                src={jumprope}
+                alt="comedy"
+                class="pointer-events-none shrink-0 opacity-90"
+              />
+            </div>
+          </div>
+          <div class="absolute z-10 inset-0 translate-x-2 translate-y-2 rounded-[24px] border border-[#959595] bg-transparent"></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
