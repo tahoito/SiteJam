@@ -3,48 +3,53 @@ import SectionTitle from "../ui/SectionTitle.astro";
 import SubTitle from "../ui/SubTitle.astro";
 const { id } = Astro.props;
 import AboutPic from "/src/assets/about.svg";
+import AboutFrame from "/src/assets/about_frame.svg";
 import Flower from "/src/assets/flower_pink.svg";
 ---
 
 <section id={id} class="mt-6">
   <SectionTitle text="About" />
-  <div class="mt-6 space-y-10">
+  <div>
     <SubTitle text="自己紹介" />
     <div class="flex w-full flex-col items-start gap-10 lg:flex-row lg:items-center lg:gap-[120px]">
       <div class="w-full lg:w-[45%]">
         <div class="relative mt-4 inline-block">
-          <div class="absolute left-0 top-0 z-10 -translate-y-4 text-[44px] [text-shadow:0_4px_10px_rgba(50,50,50,0.5)]">
+          <div class="absolute left-0 top-0 z-20 -translate-y-4 text-[44px] [text-shadow:0_4px_10px_rgba(50,50,50,0.5)]">
             中山奈々
           </div>
-          <AboutPic class="h-auto w-full max-w-[520px]" />
-          <Flower class="absolute right-[-34px] bottom-[-10px] w-[90px] md:w-[120px]" />
+          <AboutFrame class="absolute -z-0 right-[-8px] bottom-[-10px]" />
+          <AboutPic class="relative z-10" />
+          <Flower class="absolute z-20 right-[-70px] bottom-[-10px]" />
         </div>
       </div>
       <div class="w-full lg:w-[45%] py-10">
         <div class="w-full max-w-[460px] space-y-4">
-          <div class="flex items-center gap-6 sm:gap-12 lg:gap-[120px] border-b-[0.5px] border-text/30 py-3 text-text">
+          <div class="grid grid-cols-[200px_1fr] sm:grid-cols-[200px_1fr] items-center gap-4 border-b-[0.5px] border-text/30 py-3 text-text">
             <span class="text-xl">生年月日</span>
             <span class="font-chiru">2001年5月21日</span>
           </div>
-          <div class="flex items-center gap-6 sm:gap-12 lg:gap-[120px] border-b-[0.5px] border-text/30 py-3 text-text">
+          <div class="grid grid-cols-[200px_1fr] sm:grid-cols-[200px_1fr] items-center gap-4 border-b-[0.5px] border-text/30 py-3 text-text">
             <span class="text-xl">血液型</span>
             <span class="font-chiru">B型</span>
           </div>
-          <div class="flex items-center gap-6 sm:gap-12 lg:gap-[120px] border-b-[0.5px] border-text/30 py-3 text-text">
+          <div class="grid grid-cols-[200px_1fr] sm:grid-cols-[200px_1fr] items-center gap-4 border-b-[0.5px] border-text/30 py-3 text-text">
             <span class="text-xl">星座</span>
             <span class="font-chiru">双子座</span>
           </div>
-          <div class="flex items-center gap-6 sm:gap-12 lg:gap-[120px] border-b-[0.5px] border-text/30 py-3 text-text">
+          <div class="grid grid-cols-[200px_1fr] sm:grid-cols-[200px_1fr] items-center gap-4 border-b-[0.5px] border-text/30 py-3 text-text">
             <span class="text-xl">MBTI</span>
             <span class="font-chiru">ENFP</span>
           </div>
         </div>
-        <p class="mt-6 text-[16px]">
+        <p class="mt-15 text-[16px]">
           人と話すことが好きで、話してくれると喜ぶので、<br />
           ぜひたくさん話して仲良くなりたいです！
         </p>
       </div>
     </div>
-    <SubTitle text="趣味・特技" />
+
+    <div>
+      <SubTitle text="趣味・特技" />
+    </div>
   </div>
 </section>
