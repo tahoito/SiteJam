@@ -7,32 +7,37 @@ import Character from "/src/assets/character.svg";
   id="top"
   class="relative mt-[80px] w-full bg-[linear-gradient(180deg,#FAF4E3_3%,#F5E4E3_10%,#F5E4E3_89%,#FAF4E3_98%)]"
 >
-  <div class="relative z-10 w-full px-[21px] py-[40px] md:px-[120px] md:py-[117px]">
-    <div class="grid gap-10 md:grid-cols-2 md:items-start md:pt-[20px]">
-      <div class="md:max-w-[730px]">
-        <h1 class="text-[32px] md:text-7xl leading-[1.5] font-medium">
+  <div class="relative z-10 w-full px-[21px] py-[80px] md:px-[120px] md:py-[150px]">
+    <div class="grid gap-10 lg:grid-cols-2 lg:items-start lg:pt-[20px]">
+      <div class="lg:max-w-[730px] animate-hero-text">
+        <h1 class="text-[32px] md:text-5xl lg:text-7xl leading-[1.5] font-medium">
           ゆるく、楽しく<br />
           奈々の<br />
           ポートフォリオ
         </h1>
 
-        <p class="text-[28px] mt-6 md:text-[48px] md:mt-20 text-text font-chiru">
+        <p class="text-[28px] mt-6 md:text-[40px] lg:text-[48px] md:mt-16 lg:mt-20 text-text font-chiru">
           寝て、忘れよう。
         </p>
       </div>
 
-      <div class="md:flex md:justify-end">
-        <div class="relative w-full max-w-[340px] md:max-w-none md:w-[699px] h-[289px] md:h-[572px]">
+      <div class="flex justify-center lg:justify-end animate-hero-image">
+        <div class="relative w-full max-w-[360px] sm:max-w-[420px] lg:max-w-none lg:w-[699px] h-[300px] sm:h-[360px] lg:h-[572px]">
           <div class="blob w-full h-full overflow-hidden">
             <img src={top} alt="Hero Image" class="w-full h-full object-cover" />
           </div>
           <div
             class="
               absolute left-0 bottom-0 z-10 pointer-events-none rotate-[-11.427deg]
-              w-[90px] md:w-auto
+              w-[90px] sm:w-[110px] lg:w-auto
             "
           >
             <Character class="h-full w-full" />
+          </div>
+          <div class="absolute bottom-6 right-4 flex gap-2">
+            <span class="w-5 h-5 rounded-full bg-white"></span>
+            <span class="w-5 h-5 rounded-full bg-accent translate-y-[-15px]"></span>
+            <span class="w-5 h-5 rounded-full bg-green translate-y-[-30px]"></span>
           </div>
         </div>
       </div>
@@ -41,6 +46,40 @@ import Character from "/src/assets/character.svg";
 </section>
 
 <style>
+  @media (prefers-reduced-motion: no-preference) {
+    .animate-hero-text {
+      opacity: 0;
+      transform: translateY(-48px);
+      animation: slideDownFade 2600ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    .animate-hero-image {
+      opacity: 0;
+      transform: translateY(16px) scale(0.94);
+      animation: popIn 520ms cubic-bezier(0.16, 1, 0.3, 1) 2300ms forwards;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-hero-text,
+    .animate-hero-image {
+      opacity: 1;
+      transform: none;
+      animation: none;
+    }
+  }
+
+  @keyframes slideDownFade {
+    from { opacity: 0; transform: translateY(-48px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes popIn {
+    0% { opacity: 0; transform: translateY(16px) scale(0.94); }
+    60% { opacity: 1; transform: translateY(0) scale(1.06); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
   .blob {
     border-radius: 58% 42% 65% 35% / 40% 60% 45% 55%;
     animation: blobMove 7s ease-in-out infinite;
@@ -52,5 +91,42 @@ import Character from "/src/assets/character.svg";
     50% { border-radius: 65% 35% 50% 50% / 45% 55% 40% 60%; }
     75% { border-radius: 50% 50% 60% 40% / 60% 40% 55% 45%; }
     100% { border-radius: 58% 42% 65% 35% / 40% 60% 45% 55%; }
+  }
+
+  @keyframes revealUp {
+    from {
+      opacity: 0;
+      transform: translateY(-14px);
+      filter: blur(2px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+  }
+
+  .reveal-up {
+    opacity: 0;
+    animation: revealUp 700ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    will-change: transform, opacity, filter;
+  }
+
+  .reveal-delay-1 {
+    animation-delay: 120ms;
+  }
+
+  .reveal-delay-2 {
+    animation-delay: 240ms;
+  }
+
+  /* アクセシビリティ：動き苦手な人は停止 */
+  @media (prefers-reduced-motion: reduce) {
+    .reveal-up {
+      opacity: 1;
+      animation: none;
+      transform: none;
+      filter: none;
+    }
   }
 </style>

@@ -8,10 +8,19 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "RiiMonakaBlack";
+  src: url("/fonts/RiiMonakaBLt.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 
 @theme {
   --font-sans: "Zen Maru Gothic", system-ui, sans-serif;
   --font-chiru: "Chiru", "Zen Maru Gothic", sans-serif;
+  --font-monaka: "RiiMonakaBlack", "Zen Maru Gothic", sans-serif;
  
   --color-main: #F5E4E3;
   --color-base: #FAF4E3;

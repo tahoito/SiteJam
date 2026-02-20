@@ -1,6 +1,7 @@
 ---
 import Logo from "/src/assets/logo.svg";
-import { Menu, X } from "lucide-astro";
+import Menu from "/src/assets/menu.svg";
+import X from "/src/assets/x.svg";
 ---
 
 <header id="top" class="fixed left-0 top-0 z-50 w-full bg-base">
@@ -26,7 +27,28 @@ import { Menu, X } from "lucide-astro";
                     <Menu class="h-11 w-11 text-text" />
                 </summary>
 
-                <div class="absolute right-0 mt-3 w-[220px] rounded-3xl border border-zinc-200 bg-base p-3">
+                <div class="fixed inset-0 z-50 bg-base/95 backdrop-blur-sm">
+                    <div class="mx-auto h-full w-full max-w-5xl px-5">
+                        <div class="flex items-center justify-between pt-[26px]">
+                            <Logo class="h-8 w-auto" />
+                            <button
+                              type="button"
+                              class="rounded-2xl p-2 hover:bg-black/5"
+                              aria-label="Close menu"
+                              onclick="this.closest('details')?.removeAttribute('open')"
+                            >
+                              <X class="h-9 w-9 text-text" />
+                            </button>
+                        </div>
+
+                        <nav class="mt-12 flex flex-col gap-4 text-3xl">
+                            <a class="hover:opacity-60" href="#top" onclick="this.closest('details')?.removeAttribute('open')">Home</a>
+                            <a class="hover:opacity-60" href="#about" onclick="this.closest('details')?.removeAttribute('open')">About</a>
+                            <a class="hover:opacity-60" href="#work" onclick="this.closest('details')?.removeAttribute('open')">Work</a>
+                            <a class="hover:opacity-60" href="#life" onclick="this.closest('details')?.removeAttribute('open')">Life</a>
+                            <a class="hover:opacity-60" href="#contact" onclick="this.closest('details')?.removeAttribute('open')">Contact</a>
+                        </nav>
+                    </div>
                 </div>
             </details>
         </div>
