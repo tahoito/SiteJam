@@ -7,27 +7,31 @@ import Character from "/src/assets/character.svg";
   id="top"
   class="relative mt-[80px] w-full bg-[linear-gradient(180deg,#FAF4E3_3%,#F5E4E3_10%,#F5E4E3_89%,#FAF4E3_98%)]"
 >
-  <div class="relative z-10 w-full px-[120px] py-[11px]">
-    <div class="relative h-[807px] pt-[180px]">
-      <div class="max-w-[730px]">
-        <h1 class="text-7xl leading-[1.5] font-medium">
+  <div class="relative z-10 w-full px-[21px] py-[40px] md:px-[120px] md:py-[117px]">
+    <div class="grid gap-10 md:grid-cols-2 md:items-start md:pt-[20px]">
+      <div class="md:max-w-[730px]">
+        <h1 class="text-[32px] md:text-7xl leading-[1.5] font-medium">
           ゆるく、楽しく<br />
           奈々の<br />
           ポートフォリオ
         </h1>
 
-        <p class="mt-20 text-[48px] text-text font-chiru">
+        <p class="text-[28px] mt-6 md:text-[48px] md:mt-20 text-text font-chiru">
           寝て、忘れよう。
         </p>
       </div>
 
-      <div class="absolute right-0 top-[120px] w-[699px] h-[572px]">
-        <div class="relative w-full h-full">
+      <div class="md:flex md:justify-end">
+        <div class="relative w-full max-w-[340px] md:max-w-none md:w-[699px] h-[289px] md:h-[572px]">
           <div class="blob w-full h-full overflow-hidden">
             <img src={top} alt="Hero Image" class="w-full h-full object-cover" />
           </div>
-
-          <div class="absolute left-0 bottom-0 rotate-[-11.427deg] z-10 pointer-events-none">
+          <div
+            class="
+              absolute left-0 bottom-0 z-10 pointer-events-none rotate-[-11.427deg]
+              w-[90px] md:w-auto
+            "
+          >
             <Character class="h-full w-full" />
           </div>
         </div>
