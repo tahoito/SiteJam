@@ -2,7 +2,7 @@
 const { title } = Astro.props;
 ---
 
-<div class="flex items-center gap-2 mb-2">
-  <div class="w-2 h-2 rounded-full bg-main"></div>
+<div class="flex items-center gap-2 mb-2 w-fit relative">
   <h4 class="text-[1.8rem] font-bold text-text">{title}</h4>
+  <div class="h-[5px] bg-main w-full absolute bottom-[3px] left-0 -z-10"></div>
 </div>
