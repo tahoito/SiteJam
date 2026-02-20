@@ -1,23 +1,16 @@
 ---
-import Header from "../components/common/header.astro";
-import About from "../components/layout/About.astro"
-import Contact from "../components/layout/Contact.astro"
-import Life from "../components/layout/Life.astro"
-import Top from "../components/layout/Top.astro"
-import Work from "../components/layout/Work.astro"
-import Footer from "../components/common/footer.astro";
-import BaseLayout from "../layouts/Layout.astro"
+import { Header, Top, About, Work, Life, Contact, Footer, BaseLayout } from "../components"
 ---
 
 <BaseLayout title="中山奈々 | Profile">
   <Header />
   <Top />
 
-  <div class="mx-auto max-w-5xl">
-	<About id="about" />
-	<Work id="work" />
-	<Life id="life" />
-	<Contact id="contact" />
+  <div class="mx-auto max-w-[1152px] px-4 md:px-16 flex flex-col justify-center">
+    <About id="about" />
+    <Work id="work" />
+    <Life id="life" />
+    <Contact id="contact" />
   </div>
 
   <Footer />
