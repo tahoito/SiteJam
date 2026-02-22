@@ -16,7 +16,7 @@ const tape = [
 ];
 ---
 
-<section id={id}>
+<section id={id} data-reveal-scope="life">
   <SectionTitle text="Life" />
   <SubTitle text="奈々の思い出" />
     <div class="mt-7 mb-5">
@@ -24,12 +24,13 @@ const tape = [
         {memories.map((item, index) => {
           const tapeItem = tape[index % tape.length];
           return (
+            <div class="life-card relative rounded-[12px] border border-text/30 bg-white p-4" data-reveal style={`--delay:${index * 90}ms`}>
             <div class="relative mb-8 w-[48%] rounded-[12px] border border-text/30 bg-white p-4 md:mb-0 md:w-[23%]">
               <img
                 src={tapeItem.src}
                 alt=""
                 aria-hidden="true"
-                class={`pointer-events-none absolute -top-6 left-1/2 z-10 w-[120px] -translate-x-1/2 md:w-[132px] ${tapeItem.className}`}
+                class={`life-tape pointer-events-none absolute -top-4 left-1/2 z-10 w-[120px] -translate-x-1/2 md:w-[132px] ${tapeItem.className}`}
               />
               <div class="aspect-square overflow-hidden rounded-[4px]">
                 <img src={item.src} alt={item.alt} class="h-full w-full object-cover pb-4" />
@@ -41,3 +42,87 @@ const tape = [
       </div>
     </div>
 </section>
+
+<style>
+  .life-card {
+    opacity: 0;
+    transform: translateY(-120px) scale(0.94);
+    will-change: transform, opacity;
+  }
+
+  .life-tape {
+    opacity: 0;
+    transform: translateY(-50px) rotate(-10deg) scale(0.8);
+    will-change: transform, opacity;
+  }
+
+  .life-card.is-visible {
+    animation: life-card-in 1600ms cubic-bezier(0.23, 1, 0.32, 1) forwards;
+    animation-delay: var(--delay, 0ms);
+  }
+
+  .life-card.is-visible .life-tape {
+    animation: life-tape-in 1000ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    animation-delay: calc(var(--delay, 0ms) + 1400ms);
+  } 
+
+  @keyframes life-card-in {
+    0% {
+      opacity: 0;
+      transform: translateY(-120px) scale(0.94);
+    }
+    60% {
+      transform: translateY(10px) scale(1.02);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @keyframes life-tape-in {
+    0% {
+      opacity: 0;
+      transform: translateY(-50px) rotate(-10deg) scale(0.8);
+    }
+    70% {
+      transform: translateY(6px) rotate(3deg) scale(1.05);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) rotate(0deg) scale(1);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .life-card,
+    .life-tape {
+      opacity: 1;
+      transform: none;
+      animation: none;
+    }
+  }
+</style>
+
+<script is:inline>
+  const lifeSection = document.querySelector('section[data-reveal-scope="life"]');
+  if (lifeSection) {
+    const targets = lifeSection.querySelectorAll("[data-reveal]");
+    if (!("IntersectionObserver" in window)) {
+      targets.forEach((el) => el.classList.add("is-visible"));
+    } else {
+      const observer = new IntersectionObserver(
+        (entries, obs) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              obs.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.2, rootMargin: "0px 0px -10% 0px" }
+      );
+      targets.forEach((el) => observer.observe(el));
+    }
+  }
+</script>
