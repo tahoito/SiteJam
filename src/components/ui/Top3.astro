@@ -19,26 +19,25 @@ const photos = [
   {
     src: "/images/top3/3.jpeg",
     alt: "トップ3写真3",
-    className: "md:translate-x-[90px] md:-translate-y-6",
+    className: "md:translate-x-[100px] md:-translate-y-30",
   },
   {
     src: "/images/top3/4.png",
     alt: "トップ3写真4",
-    className: "md:translate-x-[90px] md:-translate-y-6",
+    className: "md:translate-x-[100px] md:-translate-y-30",
   },
 ];
 
-const heart = "/images/heart.png";
 ---
 
 <div class="mt-3">
-  <div class="mx-auto flex w-full max-w-[1024px] flex-col gap-[102px] px-[20px] py-[20px] md:flex-row md:items-stretch md:justify-between">
+  <div class="mx-auto flex w-full max-w-[1024px] flex-col gap-[36px] px-[20px] py-[20px] md:flex-row md:items-stretch md:justify-between md:gap-[102px]">
     <div class="relative w-full md:w-[292px] md:py-[43px]">
       <div class="space-y-[12px]">
         {items.map((item, index) => (
           <div
             class:list={[
-              "flex w-full items-center gap-3 rounded-full border border-text bg-white px-4 py-4 md:w-[292px]",
+              "flex w-full items-center gap-3 rounded-full border border-text bg-white px-2 py-2 md:w-[292px]",
               index === 1 ? "md:ml-18" : "",
               index === 2 ? "md:ml-36" : "",
             ]}
@@ -50,18 +49,13 @@ const heart = "/images/heart.png";
           </div>
         ))}
       </div>
-      <img
-        src={heart}
-        alt=""
-        aria-hidden="true"
-        class="pointer-events-none absolute -left-1 bottom-20 w-[56px] sm:w-[77px]"
-      />
+      {/* heart removed */}
     </div>
 
     <div class="relative w-full md:w-[630px] md:h-[290px]">
-      <div class="grid grid-cols-2 gap-[6px]">
+      <div class="flex flex-nowrap justify-start gap-[10px] overflow-x-auto px-2 pt-2 pb-3 md:flex-wrap md:justify-start md:gap-[70px] md:overflow-visible md:px-0 md:pt-0 md:pb-0">
         {photos.map((photo) => (
-          <div class={`h-[139px] md:w-[220px] rounded-[16px] border-5 border-[#FEE088] p-1 translate-x-2 translate-y-2 ${photo.className}`}>
+          <div class={`h-[139px] w-[220px] shrink-0 rounded-[16px] border-5 border-[#FEE088] p-1 translate-x-2 translate-y-2 ${photo.className}`}>
                 <div class="h-[139px] w-full -translate-x-6 -translate-y-6 overflow-hidden rounded-[12px] md:w-[220px]">
                 <img src={photo.src} alt={photo.alt} class="h-full w-full object-cover" />
                 </div>
