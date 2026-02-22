@@ -35,7 +35,7 @@ const hobbies = [
 
 ---
 
-<section id={id} class="mt-6">
+<section id={id} class="mt-6" data-reveal-scope="about">
   <SectionTitle text="About" />
   <div class="space-y-16">
     <div>
@@ -44,7 +44,7 @@ const hobbies = [
         <div class="w-full">
           <div class="relative mt-4 inline-block w-full max-w-[520px] md:max-w-[420px] lg:max-w-[520px] aspect-[520/464] overflow-hidden sm:overflow-visible sm:mb-3">
             <div class="absolute left-0 top-0 z-20 -translate-y-4 text-[32px] sm:text-[44px] [text-shadow:0_4px_10px_rgba(50,50,50,0.5)]">
-              中山奈々
+              <span class="about-reveal inline-block" data-reveal style="--delay: 0ms;">中山奈々</span>
             </div>
             <AboutFrame class="absolute inset-0 -z-0 h-full w-full origin-top scale-[0.96] translate-x-2 translate-y-2.5 sm:origin-center sm:scale-100 sm:translate-x-3 sm:translate-y-3" />
             <AboutPic class="absolute inset-0 z-10 h-full w-full origin-top scale-[0.96] sm:origin-center sm:scale-100" />
@@ -53,24 +53,24 @@ const hobbies = [
         </div>
         <div class="w-full">
           <div class="w-full space-y-4">
-            <div class="grid grid-cols-[180px_1fr] sm:grid-cols-[200px_1fr] lg:grid-cols-[220px_1fr] items-center gap-8 border-b-[0.5px] border-text/30 py-3">
+            <div class="about-reveal grid grid-cols-[180px_1fr] sm:grid-cols-[200px_1fr] lg:grid-cols-[220px_1fr] items-center gap-8 border-b-[0.5px] border-text/30 py-3" data-reveal style="--delay: 400ms;">
               <span class="text-[20px]">生年月日</span>
               <span class="font-chiru text-[16px]">2001年5月21日</span>
             </div>
-            <div class="grid grid-cols-[180px_1fr] sm:grid-cols-[200px_1fr] lg:grid-cols-[220px_1fr] items-center gap-8 border-b-[0.5px] border-text/30 py-3">
+            <div class="about-reveal grid grid-cols-[180px_1fr] sm:grid-cols-[200px_1fr] lg:grid-cols-[220px_1fr] items-center gap-8 border-b-[0.5px] border-text/30 py-3" data-reveal style="--delay: 800ms;">
               <span class="text-[20px]">血液型</span>
               <span class="font-chiru text-[16px]">B型</span>
             </div>
-            <div class="grid grid-cols-[180px_1fr] sm:grid-cols-[200px_1fr] lg:grid-cols-[220px_1fr] items-center gap-8 border-b-[0.5px] border-text/30 py-3">
+            <div class="about-reveal grid grid-cols-[180px_1fr] sm:grid-cols-[200px_1fr] lg:grid-cols-[220px_1fr] items-center gap-8 border-b-[0.5px] border-text/30 py-3" data-reveal style="--delay: 1200ms;">
               <span class="text-[20px]">星座</span>
               <span class="font-chiru text-[16px]">双子座</span>
             </div>
-            <div class="grid grid-cols-[180px_1fr] sm:grid-cols-[200px_1fr] lg:grid-cols-[220px_1fr] items-center gap-8 border-b-[0.5px] border-text/30 py-3">
+            <div class="about-reveal grid grid-cols-[180px_1fr] sm:grid-cols-[200px_1fr] lg:grid-cols-[220px_1fr] items-center gap-8 border-b-[0.5px] border-text/30 py-3" data-reveal style="--delay: 1600ms;">
               <span class="text-[20px]">MBTI</span>
               <span class="font-chiru text-[16px]">ENFP</span>
             </div>
           </div>
-          <p class="mt-15 text-[16px]">
+          <p class="about-reveal mt-15 text-[16px]" data-reveal style="--delay: 2000ms;">
             人と話すことが好きで、話してくれると喜ぶので、<br class="hidden sm:block" />
             ぜひたくさん話して仲良くなりたいです！
           </p>
@@ -86,3 +86,54 @@ const hobbies = [
     </div>
   </div>
 </section>
+
+<style>
+  .about-reveal {
+    opacity: 0;
+    transform: translateY(-24px);
+    will-change: transform, opacity;
+  }
+
+  .about-reveal.is-visible {
+    animation: about-slide 1200ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    animation-delay: var(--delay, 0ms);
+  }
+
+  @keyframes about-slide {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .about-reveal {
+      opacity: 1;
+      transform: none;
+      animation: none;
+    }
+  }
+</style>
+
+<script is:inline>
+  const aboutSection = document.querySelector('section[data-reveal-scope="about"]');
+  if (aboutSection) {
+    const targets = aboutSection.querySelectorAll("[data-reveal]");
+    if (!("IntersectionObserver" in window)) {
+      targets.forEach((el) => el.classList.add("is-visible"));
+    } else {
+      const observer = new IntersectionObserver(
+        (entries, obs) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              obs.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.25, rootMargin: "0px 0px -10% 0px" }
+      );
+      targets.forEach((el) => observer.observe(el));
+    }
+  }
+</script>
