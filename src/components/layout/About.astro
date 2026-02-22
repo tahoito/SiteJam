@@ -2,11 +2,108 @@
 import SectionTitle from "../ui/SectionTitle.astro";
 import SubTitle from "../ui/SubTitle.astro";
 const { id } = Astro.props;
+import AboutPic from "/src/assets/about.svg";
+import AboutFrame from "/src/assets/about_frame.svg";
+import Flower from "/src/assets/flower_pink.svg";
+const comedy = "/images/hobbies/comedy.png";
+const camera = "/images/hobbies/camera.png";
+const jumprope = "/images/hobbies/jumprope.png";
+
 ---
 
-<section id={id}>
+<section id={id} class="mt-6">
   <SectionTitle text="About" />
-  <SubTitle text="自己紹介" />
-  <SubTitle text="趣味・特技" />
+  <div>
+    <SubTitle text="自己紹介" />
+    <div class="flex w-full flex-col items-start gap-10 lg:flex-row lg:items-center lg:gap-[120px]">
+      <div class="w-full lg:w-[45%]">
+        <div class="relative mt-4 inline-block">
+          <div class="absolute left-0 top-0 z-20 -translate-y-4 text-[44px] [text-shadow:0_4px_10px_rgba(50,50,50,0.5)]">
+            中山奈々
+          </div>
+          <AboutFrame class="absolute -z-0 right-[-8px] bottom-[-10px]" />
+          <AboutPic class="relative z-10" />
+          <Flower class="absolute z-20 right-[-70px] bottom-[-10px]" />
+        </div>
+      </div>
+      <div class="w-full lg:w-[45%] py-10">
+        <div class="w-full max-w-[460px] space-y-4">
+          <div class="grid grid-cols-1 sm:grid-cols-[200px_1fr] items-start sm:items-center gap-2 sm:gap-4 border-b-[0.5px] border-text/30 py-3 text-text">
+            <span class="text-xl">生年月日</span>
+            <span class="font-chiru">2001年5月21日</span>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-[200px_1fr] items-start sm:items-center gap-2 sm:gap-4 border-b-[0.5px] border-text/30 py-3 text-text">
+            <span class="text-xl">血液型</span>
+            <span class="font-chiru">B型</span>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-[200px_1fr] items-start sm:items-center gap-2 sm:gap-4 border-b-[0.5px] border-text/30 py-3 text-text">
+            <span class="text-xl">星座</span>
+            <span class="font-chiru">双子座</span>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-[200px_1fr] items-start sm:items-center gap-2 sm:gap-4 border-b-[0.5px] border-text/30 py-3 text-text">
+            <span class="text-xl">MBTI</span>
+            <span class="font-chiru">ENFP</span>
+          </div>
+        </div>
+        <p class="mt-15 text-[16px]">
+          人と話すことが好きで、話してくれると喜ぶので、<br />
+          ぜひたくさん話して仲良くなりたいです！
+        </p>
+      </div>
+    </div>
 
+    <div class="py-5">
+      <SubTitle text="趣味・特技" />
+      <div class="py-5 grid grid-cols-1 gap-6 justify-items-center md:grid-cols-3 md:justify-items-stretch">
+        <div class="relative">
+          <div class="relative rounded-[20px] bg-main px-6 py-8">
+            <div class="flex items-start justify-between gap-2">
+              <div class="min-w-0">
+                <div class="text-xl font-chiru text-text">お笑い</div>
+                <p class="text-[16px]">高校時代、演劇部で脚本を書いてて、その頃からコントを見るのが好きです。</p>
+              </div>
+              <img
+                src={comedy}
+                alt="comedy"
+                class="pointer-events-none shrink-0 opacity-90"
+              />
+            </div>
+          </div>
+          <div class="absolute z-10 inset-0 translate-x-2 translate-y-2 rounded-[24px] border border-text/30 bg-transparent"></div>
+        </div>
+        <div class="relative">
+          <div class="relative rounded-[20px] bg-main px-6 py-8">
+            <div class="flex items-start justify-between gap-2">
+              <div class="min-w-0">
+                <div class="text-xl font-chiru text-text">アニメ映画鑑賞</div>
+                <p class="text-[16px]">時間があるときは、家でアニメ映画や流行してる映画を見てます。</p>
+              </div>
+              <img
+                src={camera}
+                alt="comedy"
+                class="pointer-events-none shrink-0 opacity-90"
+              />
+            </div>
+          </div>
+          <div class="absolute z-10 inset-0 translate-x-2 translate-y-2 rounded-[24px] border border-[#959595] bg-transparent"></div>
+        </div>
+        <div class="relative">
+          <div class="relative rounded-[20px] bg-main px-6 py-8">
+            <div class="flex items-start justify-between gap-2">
+              <div class="min-w-0">
+                <div class="text-xl font-chiru text-text">縄跳び</div>
+                <p class="text-[16px]">小学校の頃、鉄棒が嫌いな反動で好きになって、今では特技です。</p>
+              </div>
+              <img
+                src={jumprope}
+                alt="comedy"
+                class="pointer-events-none shrink-0 opacity-90"
+              />
+            </div>
+          </div>
+          <div class="absolute z-10 inset-0 translate-x-2 translate-y-2 rounded-[24px] border border-[#959595] bg-transparent"></div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
