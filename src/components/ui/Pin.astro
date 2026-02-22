@@ -9,12 +9,13 @@ interface Props {
   year: string;
   title: string;
   contentText: string;
+  className?: string;
 }
 
-const { year, title, contentText } = Astro.props;
+const { year, title, contentText, className } = Astro.props;
 ---
 
-<div class="flex justify-center items-center w-fit">
+<div class={`flex justify-center items-center w-fit ${className}`}>
     <div class="w-[162px] h-auto bg-base opacity-90">
         <p class="text-text text-[1.6rem]">{contentText}</p>
     </div>

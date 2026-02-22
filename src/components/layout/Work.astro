@@ -7,28 +7,29 @@ import Schedule from "../ui/Schedule.astro";
 import dandelion from "../../assets/flower/Dandelion.png";
 import workBg from "../../assets/nakayama/work-bg.png";
 import workBgOutline from "../../assets/outline/work-outline.png";
+import RodeMapContent from "./rodeMapContent.astro";
 const { id } = Astro.props;
 ---
 
 <section id={id}>
   <SectionTitle text="Work" />
   <SubTitle text="今の仕事" />
-  <div class="flex flex-col w-full h-auto">
-    <div class="flex sm:h-[272px] gap-4 justify-between items-start">
-      <div class="flex flex-col justify-between items-start self-stretch sm:ml-16 ml-0">
-        <div class="mb-8 md:mb-0">
+  <div class="flex flex-col w-fit h-auto">
+    <div class="flex flex-col md:flex-row gap-8 justify-between items-center md:items-start w-full">
+      <div class="flex flex-col justify-between items-start self-stretch md:ml-16 ml-0 w-full flex-1 min-w-0">
+        <div class="mb-8 w-full">
           <WorkTitle title="仕事内容" />
-          <p class="text-[1.6rem]">主に、日々の連絡や調整業務、相談対応やイベントの企画・運営をしています。<br>一人ひとりとしっかり向き合うことを大切にしています。</p>
+          <p class="text-[1.6rem] leading-relaxed break-words w-full">主に、日々の連絡や調整業務、相談対応やイベントの企画・運営をしています。<br class="hidden md:block">一人ひとりとしっかり向き合うことを大切にしています。</p>
         </div>
-        <div>
+        <div class="mb-8 md:mb-0 w-full">
           <WorkTitle title="仕事のやりがい" />
-          <p class="text-[1.6rem]">メンバーと楽しく話す時間が、いちばんのやりがいです。<br>「話してよかった」と言ってもらえると、とても嬉しいです。</p>
+          <p class="text-[1.6rem] leading-relaxed break-words w-full">メンバーと楽しく話す時間が、いちばんのやりがいです。<br class="hidden md:block">「話してよかった」と言ってもらえると、とても嬉しいです。</p>
         </div>
       </div>
-      <div class="flex items-end shrink-0 ml-8 sm:flex-row flex-col-reverse relative">
-        <Image class="w-[134px] max-[360px]:w-[107px] h-auto shrink-0 absolute sm:static top-[150px] right-[100px]" src={dandelion} alt="ひまわりのイラスト" />
-        <div class="relative shrink-0 sm:w-[206px] w-[206px] max-[360px]:w-[165px] h-[272px] max-[360px]:h-[218px] -z-10">
-          <Image class="relative sm:w-[206px] w-[206px] max-[360px]:w-[165px] h-auto z-10" src={workBg} alt="中山さんの仕事中の画像" />
+      <div class="flex items-end shrink-0 md:ml-8 flex-col-reverse md:flex-row relative mt-8 md:mt-0 max-w-full">
+        <Image class="w-[134px] max-[360px]:w-[107px] h-auto shrink-0 absolute md:static top-[150px] right-[100px]" src={dandelion} alt="ひまわりのイラスト" />
+        <div class="relative shrink-0 w-[206px] max-[360px]:w-[165px] h-[272px] max-[360px]:h-[218px] -z-10">
+          <Image class="relative w-[206px] max-[360px]:w-[165px] h-auto z-10" src={workBg} alt="中山さんの仕事中の画像" />
           <Image class="absolute top-3 left-3 w-[206px] max-[360px]:w-[165px] h-auto" src={workBgOutline} alt="中山さんの仕事中の画像のアウトライン" />
         </div>
       </div>
@@ -39,7 +40,7 @@ const { id } = Astro.props;
     <SubTitle text="1日のスケジュール" />
     <Schedule />
   </div>
-
   <SubTitle text="これまでの歩み" />
+  <!-- <RodeMapContent /> -->
   <SubTitle text="中山さんの好きなところ ベスト3" />
 </section>
