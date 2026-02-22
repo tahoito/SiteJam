@@ -8,6 +8,7 @@ import dandelion from "../../assets/flower/Dandelion.png";
 import workBg from "../../assets/nakayama/work-bg.png";
 import workBgOutline from "../../assets/outline/work-outline.png";
 import RodeMapContent from "./rodeMapContent.astro";
+import Top3 from "../ui/Top3.astro";
 const { id } = Astro.props;
 ---
 
@@ -43,4 +44,5 @@ const { id } = Astro.props;
   <SubTitle text="これまでの歩み" />
   <!-- <RodeMapContent /> -->
   <SubTitle text="中山さんの好きなところ ベスト3" />
+  <Top3 />
 </section>
