@@ -1,0 +1,22 @@
+---
+import Pin from "../ui/Pin.astro";
+import backgroundImagePC from "../../assets/rodeMap-bg-pc.png";
+import backgroundImageSP from "../../assets/rodeMap-bg-sp.png";
+import MapText from "../ui/mapText.astro";
+---
+
+<!-- pc用 -->
+<div class="md:block hidden bg-cover bg-center w-[1024px] h-[740px] relative" style={`background-image: url(${backgroundImagePC.src})`}>
+  <MapText />
+  <Pin year="2024" title="転職" contentText="新しい仕事を探して、現在はバンタンのスタッフとして働いてます。" className="absolute top-0 right-24" />
+  <Pin year="2021" title="就職" contentText="コンカフェのバイトを辞めて、ALSOKに就職し、3年間事務を担当しました。" className="absolute bottom-80 right-100" />
+  <Pin year="2020" title="高校卒業" contentText="三重県の飯野高校を卒業しました。" className="absolute bottom-20 left-10" />
+</div>
+
+<!-- sp用 -->
+<div class="md:hidden block bg-cover bg-center w-fit h-full relative" style={`background-image: url(${backgroundImageSP.src})`}>
+  <MapText />
+  <Pin year="2024" title="転職" contentText="新しい仕事を探して、現在はバンタンのスタッフとして働いてます。" className="absolute top-0 right-24" />
+  <Pin year="2021" title="就職" contentText="コンカフェのバイトを辞めて、ALSOKに就職し、3年間事務を担当しました。" className="absolute bottom-80 right-100" />
+  <Pin year="2020" title="高校卒業" contentText="三重県の飯野高校を卒業しました。" className="absolute bottom-20 left-10" />
+</div>

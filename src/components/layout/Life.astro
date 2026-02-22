@@ -3,7 +3,7 @@ import SectionTitle from "../ui/SectionTitle.astro";
 import SubTitle from "../ui/SubTitle.astro";
 const { id } = Astro.props;
 const memories = [
-  { src: "/images/life/1.jpeg", alt: "思い出1", label: "兵庫の妖怪ペンギン" },
+  { src: "/images/life/1.jpeg", alt: "思い出1", label: "兵庫の妖怪ベンチ" },
   { src: "/images/life/2.jpeg", alt: "思い出2", label: "長野のご当地パン" },
   { src: "/images/life/3.jpeg", alt: "思い出3", label: "友達と温泉旅行" },
   { src: "/images/life/4.jpeg", alt: "思い出4", label: "夏祭り" },
@@ -19,12 +19,13 @@ const tape = [
 <section id={id} data-reveal-scope="life">
   <SectionTitle text="Life" />
   <SubTitle text="奈々の思い出" />
-    <div class="mt-7 p-5 mb-5">
-      <div class="grid grid-cols-2 gap-5 md:grid-cols-4">
+    <div class="mt-7 mb-5">
+      <div class="mx-auto flex w-full max-w-[1024px] flex-wrap justify-between px-5">
         {memories.map((item, index) => {
           const tapeItem = tape[index % tape.length];
           return (
             <div class="life-card relative rounded-[12px] border border-text/30 bg-white p-4" data-reveal style={`--delay:${index * 90}ms`}>
+            <div class="relative mb-8 w-[48%] rounded-[12px] border border-text/30 bg-white p-4 md:mb-0 md:w-[23%]">
               <img
                 src={tapeItem.src}
                 alt=""

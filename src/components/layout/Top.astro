@@ -5,41 +5,27 @@ import Character from "/src/assets/character.svg";
 
 <section
   id="top"
-  class="relative mt-[80px] w-full bg-[linear-gradient(180deg,#FAF4E3_3%,#F5E4E3_10%,#F5E4E3_89%,#FAF4E3_98%)]"
+  class="relative mt-[80px] flex min-h-[800px] w-full items-center bg-[linear-gradient(180deg,#FAF4E3_3%,#F5E4E3_10%,#F5E4E3_89%,#FAF4E3_98%)] px-4 md:px-16"
 >
-  <div class="relative z-10 w-full px-[21px] py-[80px] md:px-[120px] md:py-[150px]">
-    <div class="grid gap-10 lg:grid-cols-2 lg:items-start lg:pt-[20px]">
-      <div class="lg:max-w-[730px] animate-hero-text">
-        <h1 class="text-[32px] md:text-5xl lg:text-7xl leading-[1.5] font-medium">
-          ゆるく、楽しく<br />
-          奈々の<br />
-          ポートフォリオ
-        </h1>
+  <div class="mx-auto flex w-full max-w-[1040px] flex-col items-center justify-between gap-12 py-20 md:flex-row xl:max-w-[1200px]">
+    <div class="z-10 w-full lg:max-w-[500px] xl:max-w-[560px]">
+      <h1 class="text-[48px] font-medium leading-[1.4] md:text-[72px]">
+        ゆるく、楽しく<br />
+        奈々の<br />
+        ポートフォリオ
+      </h1>
 
-        <p class="text-[28px] mt-6 md:text-[40px] lg:text-[48px] md:mt-16 lg:mt-20 text-text font-chiru">
-          寝て、忘れよう。
-        </p>
+      <p class="mt-12 font-chiru text-3xl text-text md:mt-20 md:text-[48px]">
+        寝て、忘れよう。
+      </p>
+    </div>
+
+    <div class="relative h-[400px] w-full max-w-[500px] md:h-[572px] lg:max-w-[600px]">
+      <div class="blob h-full w-full overflow-hidden">
+        <img src={top} alt="中山さんの写真" class="h-full w-full object-cover" />
       </div>
-
-      <div class="flex justify-center lg:justify-end animate-hero-image">
-        <div class="relative w-full max-w-[360px] sm:max-w-[420px] lg:max-w-none lg:w-[699px] h-[300px] sm:h-[360px] lg:h-[572px]">
-          <div class="blob w-full h-full overflow-hidden">
-            <img src={top} alt="Hero Image" class="w-full h-full object-cover" />
-          </div>
-          <div
-            class="
-              absolute left-0 bottom-0 z-10 pointer-events-none rotate-[-11.427deg]
-              w-[90px] sm:w-[110px] lg:w-auto
-            "
-          >
-            <Character class="h-full w-full" />
-          </div>
-          <div class="absolute bottom-6 right-4 flex gap-2">
-            <span class="w-5 h-5 rounded-full bg-white"></span>
-            <span class="w-5 h-5 rounded-full bg-accent translate-y-[-15px]"></span>
-            <span class="w-5 h-5 rounded-full bg-green translate-y-[-30px]"></span>
-          </div>
-        </div>
+      <div class="absolute -bottom-4 -left-8 z-10 w-32 rotate-[-11.4deg] pointer-events-none md:w-48 lg:w-64">
+        <Character class="h-auto w-full" />
       </div>
     </div>
   </div>

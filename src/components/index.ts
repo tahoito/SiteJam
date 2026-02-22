@@ -1,0 +1,9 @@
+export { default as Header } from "./common/header.astro";
+export { default as About } from "./layout/About.astro";
+export { default as Contact } from "./layout/Contact.astro";
+export { default as Life } from "./layout/Life.astro";
+export { default as Top } from "./layout/Top.astro";
+export { default as Work } from "./layout/Work.astro";
+export { default as Schedule } from "./ui/Schedule.astro";
+export { default as Footer } from "./common/footer.astro";
+export { default as BaseLayout } from "../layouts/Layout.astro";
