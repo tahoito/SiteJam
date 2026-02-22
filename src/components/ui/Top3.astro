@@ -9,41 +9,41 @@ const photos = [
   {
     src: "/images/top3/1.jpeg",
     alt: "トップ3写真1",
-    className: "md:absolute md:top-0 md:left-0",
+    className: "z-10",
   },
   {
     src: "/images/top3/2.jpeg",
     alt: "トップ3写真2",
-    className: "md:absolute md:top-0 md:left-[260px]",
+    className: "z-10",
   },
   {
     src: "/images/top3/3.jpeg",
     alt: "トップ3写真3",
-    className: "md:absolute md:top-[118px] md:left-[120px]",
+    className: "md:translate-x-[90px] md:-translate-y-6",
   },
   {
-    src: "/images/top3/4.jpeg",
+    src: "/images/top3/4.png",
     alt: "トップ3写真4",
-    className: "md:absolute md:top-[118px] md:left-[380px]",
+    className: "md:translate-x-[90px] md:-translate-y-6",
   },
 ];
 
 const heart = "/images/heart.png";
 ---
 
-<div class="mt-2">
-  <div class="flex flex-col gap-6 md:flex-row md:items-end md:gap-[70px]">
-    <div class="relative w-full md:w-[292px]">
-      <div class="space-y-3">
+<div class="mt-3">
+  <div class="mx-auto flex w-full max-w-[1024px] flex-col gap-[102px] px-[20px] py-[20px] md:flex-row md:items-stretch md:justify-between">
+    <div class="relative w-full md:w-[292px] md:py-[43px]">
+      <div class="space-y-[12px]">
         {items.map((item, index) => (
           <div
             class:list={[
-              "flex items-center gap-4 rounded-full border border-text bg-white px-4 py-2",
-              index === 1 ? "md:ml-6" : "",
-              index === 2 ? "md:ml-12" : "",
+              "flex w-[292px] items-center gap-3 rounded-full border border-text bg-white px-4 py-4",
+              index === 1 ? "md:ml-18" : "",
+              index === 2 ? "md:ml-36" : "",
             ]}
           >
-            <span class="flex h-11 w-11 items-center justify-center rounded-full  bg-main text-[20px]">
+            <span class="flex h-11 w-11 items-center justify-center rounded-full bg-main text-[20px]">
               {index + 1}
             </span>
             <span class="text-[20px]">{item.label}</span>
@@ -54,18 +54,18 @@ const heart = "/images/heart.png";
         src={heart}
         alt=""
         aria-hidden="true"
-        class="pointer-events-none absolute -left-1 -bottom-5 w-[56px] sm:w-[64px]"
+        class="pointer-events-none absolute -left-1 bottom-20 w-[56px] sm:w-[77px]"
       />
     </div>
 
-    <div class="relative w-full md:w-[630px] md:h-[276px]">
-      <div class="grid grid-cols-2 gap-3 md:block">
+    <div class="relative w-full md:w-[630px] md:h-[290px]">
+      <div class="grid grid-cols-2 gap-[6px]">
         {photos.map((photo) => (
-          <div class={`rounded-[12px] border-2 border-[#FEE088] bg-white p-1 ${photo.className}`}>
-            <div class="w-full overflow-hidden rounded-[12px] md:w-[220px] h-[139px]">
-              <img src={photo.src} alt={photo.alt} class="h-full w-full object-cover" />
+          <div class={`h-[139px] md:w-[220px] rounded-[16px] border-5 border-[#FEE088] p-1 translate-x-2 translate-y-2 ${photo.className}`}>
+                <div class="h-[139px] w-full -translate-x-6 -translate-y-6 overflow-hidden rounded-[12px] md:w-[220px]">
+                <img src={photo.src} alt={photo.alt} class="h-full w-full object-cover" />
+                </div>
             </div>
-          </div>
         ))}
       </div>
     </div>
