@@ -53,24 +53,24 @@ const hobbies = [
         </div>
         <div class="w-full">
           <div class="w-full space-y-4">
-            <div class="about-reveal grid grid-cols-[180px_1fr] sm:grid-cols-[200px_1fr] lg:grid-cols-[220px_1fr] items-center gap-8 border-b-[0.5px] border-text/30 py-3" data-reveal style="--delay: 400ms;">
+            <div class="about-reveal grid grid-cols-[180px_1fr] sm:grid-cols-[200px_1fr] lg:grid-cols-[220px_1fr] items-center gap-8 border-b-[0.5px] border-text/30 py-3" data-reveal style="--delay: 200ms;">
               <span class="text-[20px]">生年月日</span>
               <span class="font-chiru text-[16px]">2001年5月21日</span>
             </div>
-            <div class="about-reveal grid grid-cols-[180px_1fr] sm:grid-cols-[200px_1fr] lg:grid-cols-[220px_1fr] items-center gap-8 border-b-[0.5px] border-text/30 py-3" data-reveal style="--delay: 800ms;">
+            <div class="about-reveal grid grid-cols-[180px_1fr] sm:grid-cols-[200px_1fr] lg:grid-cols-[220px_1fr] items-center gap-8 border-b-[0.5px] border-text/30 py-3" data-reveal style="--delay: 400ms;">
               <span class="text-[20px]">血液型</span>
               <span class="font-chiru text-[16px]">B型</span>
             </div>
-            <div class="about-reveal grid grid-cols-[180px_1fr] sm:grid-cols-[200px_1fr] lg:grid-cols-[220px_1fr] items-center gap-8 border-b-[0.5px] border-text/30 py-3" data-reveal style="--delay: 1200ms;">
+            <div class="about-reveal grid grid-cols-[180px_1fr] sm:grid-cols-[200px_1fr] lg:grid-cols-[220px_1fr] items-center gap-8 border-b-[0.5px] border-text/30 py-3" data-reveal style="--delay: 600ms;">
               <span class="text-[20px]">星座</span>
               <span class="font-chiru text-[16px]">双子座</span>
             </div>
-            <div class="about-reveal grid grid-cols-[180px_1fr] sm:grid-cols-[200px_1fr] lg:grid-cols-[220px_1fr] items-center gap-8 border-b-[0.5px] border-text/30 py-3" data-reveal style="--delay: 1600ms;">
+            <div class="about-reveal grid grid-cols-[180px_1fr] sm:grid-cols-[200px_1fr] lg:grid-cols-[220px_1fr] items-center gap-8 border-b-[0.5px] border-text/30 py-3" data-reveal style="--delay: 800ms;">
               <span class="text-[20px]">MBTI</span>
               <span class="font-chiru text-[16px]">ENFP</span>
             </div>
           </div>
-          <p class="about-reveal mt-15 text-[16px]" data-reveal style="--delay: 2000ms;">
+          <p class="about-reveal mt-15 text-[16px]" data-reveal style="--delay: 1000ms;">
             人と話すことが好きで、話してくれると喜ぶので、<br class="hidden sm:block" />
             ぜひたくさん話して仲良くなりたいです！
           </p>
@@ -81,7 +81,7 @@ const hobbies = [
     <div>
       <SubTitle text="趣味・特技" />
       <div class="mt-6">
-        <Hobbies anys={hobbies} />
+        <Hobbies anys={hobbies} delayBase={800} />
       </div>
     </div>
   </div>
