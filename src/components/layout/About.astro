@@ -1,6 +1,7 @@
 ---
 import SectionTitle from "../ui/SectionTitle.astro";
 import SubTitle from "../ui/SubTitle.astro";
+import Hobbies from "../ui/hobbies.astro";
 const { id } = Astro.props;
 import AboutPic from "/src/assets/about.svg";
 import AboutFrame from "/src/assets/about_frame.svg";
@@ -8,101 +9,79 @@ import Flower from "/src/assets/flower_pink.svg";
 const comedy = "/images/hobbies/comedy.png";
 const camera = "/images/hobbies/camera.png";
 const jumprope = "/images/hobbies/jumprope.png";
+const hobbies = [
+  {
+    title: "お笑い",
+    description: "高校時代、演劇部で脚本を書いてて、その頃からコントを見るのが好きです。",
+    image: comedy,
+    alt: "comedy",
+    border: "primary",
+  },
+  {
+    title: "アニメ映画鑑賞",
+    description: "時間があるときは、家でアニメ映画や流行してる映画を見てます。",
+    image: camera,
+    alt: "camera",
+    border: "muted",
+  },
+  {
+    title: "縄跳び",
+    description: "小学校の頃、鉄棒が嫌いな反動で好きになって、今では特技です。",
+    image: jumprope,
+    alt: "jumprope",
+    border: "muted",
+  },
+];
 
 ---
 
 <section id={id} class="mt-6">
   <SectionTitle text="About" />
-  <div>
-    <SubTitle text="自己紹介" />
-    <div class="flex w-full flex-col items-start gap-10 lg:flex-row lg:items-center lg:gap-[120px]">
-      <div class="w-full lg:w-[45%]">
-        <div class="relative mt-4 inline-block">
-          <div class="absolute left-0 top-0 z-20 -translate-y-4 text-[44px] [text-shadow:0_4px_10px_rgba(50,50,50,0.5)]">
-            中山奈々
-          </div>
-          <AboutFrame class="absolute -z-0 right-[-8px] bottom-[-10px]" />
-          <AboutPic class="relative z-10" />
-          <Flower class="absolute z-20 right-[-70px] bottom-[-10px]" />
-        </div>
-      </div>
-      <div class="w-full lg:w-[45%] py-10">
-        <div class="w-full max-w-[460px] space-y-4">
-          <div class="grid grid-cols-1 sm:grid-cols-[200px_1fr] items-start sm:items-center gap-2 sm:gap-4 border-b-[0.5px] border-text/30 py-3 text-text">
-            <span class="text-xl">生年月日</span>
-            <span class="font-chiru">2001年5月21日</span>
-          </div>
-          <div class="grid grid-cols-1 sm:grid-cols-[200px_1fr] items-start sm:items-center gap-2 sm:gap-4 border-b-[0.5px] border-text/30 py-3 text-text">
-            <span class="text-xl">血液型</span>
-            <span class="font-chiru">B型</span>
-          </div>
-          <div class="grid grid-cols-1 sm:grid-cols-[200px_1fr] items-start sm:items-center gap-2 sm:gap-4 border-b-[0.5px] border-text/30 py-3 text-text">
-            <span class="text-xl">星座</span>
-            <span class="font-chiru">双子座</span>
-          </div>
-          <div class="grid grid-cols-1 sm:grid-cols-[200px_1fr] items-start sm:items-center gap-2 sm:gap-4 border-b-[0.5px] border-text/30 py-3 text-text">
-            <span class="text-xl">MBTI</span>
-            <span class="font-chiru">ENFP</span>
+  <div class="space-y-16">
+    <div>
+      <SubTitle text="自己紹介" />
+      <div class="grid gap-10 md:grid-cols-[minmax(0,420px)_1fr] md:items-center md:gap-12 lg:grid-cols-[minmax(0,520px)_1fr] lg:gap-16">
+        <div class="w-full">
+          <div class="relative mt-4 inline-block w-full max-w-[520px] md:max-w-[420px] lg:max-w-[520px] aspect-[520/464] overflow-hidden sm:overflow-visible sm:mb-3">
+            <div class="absolute left-0 top-0 z-20 -translate-y-4 text-[32px] sm:text-[44px] [text-shadow:0_4px_10px_rgba(50,50,50,0.5)]">
+              中山奈々
+            </div>
+            <AboutFrame class="absolute inset-0 -z-0 h-full w-full origin-top scale-[0.96] translate-x-2 translate-y-2.5 sm:origin-center sm:scale-100 sm:translate-x-3 sm:translate-y-3" />
+            <AboutPic class="absolute inset-0 z-10 h-full w-full origin-top scale-[0.96] sm:origin-center sm:scale-100" />
+            <Flower class="absolute z-20 right-[-16px] bottom-0 w-[80px] h-auto sm:right-[-40px] sm:bottom-[-10px] md:right-[-60px] md:w-[160px]" />
           </div>
         </div>
-        <p class="mt-15 text-[16px]">
-          人と話すことが好きで、話してくれると喜ぶので、<br />
-          ぜひたくさん話して仲良くなりたいです！
-        </p>
+        <div class="w-full">
+          <div class="w-full space-y-4">
+            <div class="grid grid-cols-[180px_1fr] sm:grid-cols-[200px_1fr] lg:grid-cols-[220px_1fr] items-center gap-8 border-b-[0.5px] border-text/30 py-3">
+              <span class="text-[20px]">生年月日</span>
+              <span class="font-chiru text-[16px]">2001年5月21日</span>
+            </div>
+            <div class="grid grid-cols-[180px_1fr] sm:grid-cols-[200px_1fr] lg:grid-cols-[220px_1fr] items-center gap-8 border-b-[0.5px] border-text/30 py-3">
+              <span class="text-[20px]">血液型</span>
+              <span class="font-chiru text-[16px]">B型</span>
+            </div>
+            <div class="grid grid-cols-[180px_1fr] sm:grid-cols-[200px_1fr] lg:grid-cols-[220px_1fr] items-center gap-8 border-b-[0.5px] border-text/30 py-3">
+              <span class="text-[20px]">星座</span>
+              <span class="font-chiru text-[16px]">双子座</span>
+            </div>
+            <div class="grid grid-cols-[180px_1fr] sm:grid-cols-[200px_1fr] lg:grid-cols-[220px_1fr] items-center gap-8 border-b-[0.5px] border-text/30 py-3">
+              <span class="text-[20px]">MBTI</span>
+              <span class="font-chiru text-[16px]">ENFP</span>
+            </div>
+          </div>
+          <p class="mt-15 text-[16px]">
+            人と話すことが好きで、話してくれると喜ぶので、<br class="hidden sm:block" />
+            ぜひたくさん話して仲良くなりたいです！
+          </p>
+        </div>
       </div>
     </div>
 
-    <div class="py-5">
+    <div>
       <SubTitle text="趣味・特技" />
-      <div class="py-5 grid grid-cols-1 gap-6 justify-items-center md:grid-cols-3 md:justify-items-stretch">
-        <div class="relative">
-          <div class="relative rounded-[20px] bg-main px-6 py-8">
-            <div class="flex items-start justify-between gap-2">
-              <div class="min-w-0">
-                <div class="text-xl font-chiru text-text">お笑い</div>
-                <p class="text-[16px]">高校時代、演劇部で脚本を書いてて、その頃からコントを見るのが好きです。</p>
-              </div>
-              <img
-                src={comedy}
-                alt="comedy"
-                class="pointer-events-none shrink-0 opacity-90"
-              />
-            </div>
-          </div>
-          <div class="absolute z-10 inset-0 translate-x-2 translate-y-2 rounded-[24px] border border-text/30 bg-transparent"></div>
-        </div>
-        <div class="relative">
-          <div class="relative rounded-[20px] bg-main px-6 py-8">
-            <div class="flex items-start justify-between gap-2">
-              <div class="min-w-0">
-                <div class="text-xl font-chiru text-text">アニメ映画鑑賞</div>
-                <p class="text-[16px]">時間があるときは、家でアニメ映画や流行してる映画を見てます。</p>
-              </div>
-              <img
-                src={camera}
-                alt="comedy"
-                class="pointer-events-none shrink-0 opacity-90"
-              />
-            </div>
-          </div>
-          <div class="absolute z-10 inset-0 translate-x-2 translate-y-2 rounded-[24px] border border-[#959595] bg-transparent"></div>
-        </div>
-        <div class="relative">
-          <div class="relative rounded-[20px] bg-main px-6 py-8">
-            <div class="flex items-start justify-between gap-2">
-              <div class="min-w-0">
-                <div class="text-xl font-chiru text-text">縄跳び</div>
-                <p class="text-[16px]">小学校の頃、鉄棒が嫌いな反動で好きになって、今では特技です。</p>
-              </div>
-              <img
-                src={jumprope}
-                alt="comedy"
-                class="pointer-events-none shrink-0 opacity-90"
-              />
-            </div>
-          </div>
-          <div class="absolute z-10 inset-0 translate-x-2 translate-y-2 rounded-[24px] border border-[#959595] bg-transparent"></div>
-        </div>
+      <div class="mt-6">
+        <Hobbies anys={hobbies} />
       </div>
     </div>
   </div>
