@@ -2,8 +2,9 @@
 import {Image, Eat, Human, Time} from "../index";
 ---
 
-<div class="w-full overflow-x-auto overflow-y-hidden pb-4 [-ms-overflow-style:none]">
-  <div class="w-[1024px]">
+<div class="relative">
+  <div class="w-full overflow-x-auto overflow-y-hidden pb-4 [-ms-overflow-style:none]">
+    <div class="w-[1024px]">
     <!-- 時間 -->
     <div class="flex h-12 justify-between gap-4 px-2">
       <div class="flex-[4] flex items-center justify-start text-[1.6rem] text-text">9:00</div>
@@ -80,5 +81,10 @@ import {Image, Eat, Human, Time} from "../index";
         </p>
       </div>
     </div>
+    </div>
+  </div>
+  <div class="scroll-hint md:hidden">
+    <span class="scroll-hint-bar"></span>
+    <span class="scroll-hint-arrow"></span>
   </div>
 </div>

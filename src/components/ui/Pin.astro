@@ -38,13 +38,13 @@ const { year, title, contentText, className } = Astro.props;
 
 <!-- sp用 -->
 <div class={`lg:hidden flex justify-center items-center w-fit ${className}`}>
-    <div class="max-w-[227px] w-fit h-auto bg-base opacity-90 rounded-[12px] border-[2px] border-accent p-[4px]">
-        <div class="text-[2rem] flex justify-start items-center gap-2">
-            <Star class="w-[22px] fill-accent stroke-accent"/>
+    <div class="max-w-[227px] w-fit h-auto bg-base opacity-90 rounded-[12px] border-[2px] border-accent p-[4px] max-[360px]:max-w-[205px] max-[360px]:p-[3px] max-[360px]:scale-[0.94] max-[360px]:origin-top-left">
+        <div class="text-[2rem] flex justify-start items-center gap-2 max-[360px]:text-[1.8rem]">
+            <Star class="w-[22px] fill-accent stroke-accent max-[360px]:w-[18px]"/>
             {year}
             {title}
         </div>
-        <p class="text-[1.6rem] text-text">{contentText}</p>
+        <p class="text-[1.6rem] text-text leading-snug max-[360px]:text-[1.4rem]">{contentText}</p>
 
     </div>
 </div>

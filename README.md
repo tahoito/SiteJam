@@ -1,46 +1,78 @@
-# Astro Starter Kit: Basics
+# 🌱 中山奈々さん ポートフォリオ
 
-```sh
-npm create astro@latest -- --template basics
-```
+## 🧑‍🎨 Overview
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+本サイトは、「中山奈々」さんのポートフォリオサイトです。
 
-## 🚀 Project Structure
+単なるプロフィール掲載ではなく、
 
-Inside of your Astro project, you'll see the following folders and files:
+- 見た人が親しみを持てる
+- 話しかけたくなる
+- コミュニケーションのきっかけが生まれる
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
+ことをゴールとして設計しています。
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+人物紹介を通して、「この人と話してみたい」と感じてもらえる体験を目指しました。
 
-## 🧞 Commands
+---
 
-All commands are run from the root of the project, from a terminal:
+## 🎯 Purpose
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+紹介サイトを通して、人と人とのつながりを生み出すことを目的としています。
 
-## 👀 Want to learn more?
+ターゲットは主に新入生を想定しており、
+不安や緊張を感じている人が、サイトをきっかけに自然に会話できる状態を目指しています。
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+オリエンテーションなどの場面で活用することを想定しています。
+
+---
+
+## 🎨 Design Concept
+
+コンセプトは、
+
+「やわらかく、親しみやすく、だけどシンプルに」
+
+### 意識したポイント
+
+- 中山さんが好きな黄色や淡いピンクを基調とした配色設計
+- 適度な角丸と余白によるやわらかい印象づくり
+- 情報量を整理し、視線誘導を意識したレイアウト構成
+- 写真を多めに使用し、人物像が直感的に伝わる設計
+- 中山さんが描いたキャラクターを活用したローディング演出
+
+デザインは「装飾を足す」よりも「整える」ことを意識しています。
+
+---
+
+## 🧩 Structure
+
+本サイトは以下のセクションで構成されています。
+
+- Top
+- About
+- Work
+- Life
+- Contact
+
+各セクションに明確な役割を持たせ、
+ストーリー性のある流れになるよう設計しています。
+
+---
+
+## 🛠 Tech Stack
+
+- Astro
+- Tailwind CSS
+- TypeScript
+
+コンポーネント設計を意識し、再利用性と保守性を考慮して実装しています。
+
+---
+
+## 💡 Implementation Highlights
+
+- レスポンシブ対応（モバイル / PC）
+- Tailwindによる一貫したデザイン管理
+- セクション単位での設計と責務分離
+- コンポーネント分割による可読性向上
