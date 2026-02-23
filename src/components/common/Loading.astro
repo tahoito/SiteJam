@@ -4,11 +4,13 @@ const { text = "Loading..." } = Astro.props;
 ---
 
 <div id="loading-screen" class="fixed inset-0 z-[9999] flex items-center justify-center bg-base transition-opacity duration-700">
-  <div class="w-full max-w-[1024px] px-5 md:px-0 -translate-y-6">
-    <h1 class="text-center text-[32px] text-title">{text}</h1>
-    <p id="progress-text" class="mt-2 mb-[100px] font-bold text-center text-[60px] text-title leading-none">
-      0%
-    </p>
+  <div class="w-full max-w-[1024px] px-5 md:px-0 -translate-y-10">
+    <div class="-translate-y-2">
+      <h1 class="text-center text-[32px] text-title">{text}</h1>
+      <p id="progress-text" class="mt-2 mb-[100px] font-bold text-center text-[60px] text-title leading-none">
+        0%
+      </p>
+    </div>
     <div id="progress-wrap" class="mt-4 relative w-full">
       <div class="relative flex h-[30px] w-full items-center overflow-hidden rounded-[12px] border border-text/30">
         <div id="progress-bar" class="h-[25px] w-0 bg-main transition-all duration-300"></div>
@@ -16,9 +18,9 @@ const { text = "Loading..." } = Astro.props;
       <div id="progress-marker" class="pointer-events-none absolute left-0 top-0 z-10 -translate-x-1/2 transition-[left] duration-300">
         <div class="flex flex-col items-center">
           <div id="progress-character" class="-translate-y-1/2">
-            <Character class="z-20"/>
+            <Character class="z-20 h-[100px]"/>
           </div>
-          <div id="progress-bubble" class="relative -mt-3 rounded-[12px] border border-text/30 bg-white px-3 py-2 text-[16px]">
+          <div id="progress-bubble" class="relative -mt-7 rounded-[12px] border border-text/30 bg-white px-3 py-2 text-[16px]">
             <span id="progress-message">ちょっと待っててね</span>
             <span class="absolute -top-2 left-1/2 h-0 w-0 -translate-x-1/2 border-x-[6px] border-b-[8px] border-x-transparent border-b-white"></span>
             <span class="absolute -top-[9px] left-1/2 h-0 w-0 -translate-x-1/2 border-x-[7px] border-b-[9px] border-x-transparent border-b-text/30"></span>
@@ -67,7 +69,7 @@ const { text = "Loading..." } = Astro.props;
       } else if (rounded < 60) {
         messageEl.textContent = "奈々頑張ってるよ!!";
       } else if (rounded < 100) {
-        messageEl.textContent = "もう少しだぁぁぁぁあああ!!!";
+        messageEl.textContent = "もう少しだぁぁぁ!!!";
       } else {
         messageEl.textContent = "完了！";
       }
