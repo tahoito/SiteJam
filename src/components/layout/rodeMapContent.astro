@@ -20,16 +20,13 @@ import { Pin, MapText, Image, backgroundImagePC, backgroundImageSP, recently, co
 <div class="lg:hidden block bg-cover bg-center w-[100vw] h-[80vh] relative" style={`background-image: url(${backgroundImageSP.src})`}>
   <MapText />
   <!-- ピン -->
-  <div  class="absolute top-[30%] right-[15%] flex gap-4" >
-    <Image src={recently} alt="最近の画像" />
+  <div  class="absolute top-[33%] right-[15%]" >
     <Pin year="2024" title="転職" contentText="新しい仕事を探して、現在はバンタンのスタッフとして働いてます。"/>
   </div>
-  <div class="absolute top-[50%] right-[20%] flex gap-4">
-    <Image src={conCafe} alt="コンカフェの画像"/>
+  <div class="absolute top-[56%] right-[20%]">
     <Pin year="2021" title="就職" contentText="コンカフェのバイトを辞めて、ALSOKに就職し、3年間事務を担当しました。" />
   </div>
-  <div class="absolute bottom-[5%] left-0 flex flex-col sm:flex-row gap-4">
-    <Image src={highSchoolGraduation} alt="高校卒業の画像" />
+  <div class="absolute bottom-[5%] left-0">
     <Pin year="2020" title="高校卒業" contentText="三重県の飯野高校を卒業しました。" />
   </div>
   <!-- 画像 -->
