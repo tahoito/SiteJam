@@ -7,20 +7,20 @@ import Character from "/src/assets/character.svg";
   id="top"
   class="relative mt-[80px] flex min-h-[800px] w-full items-center bg-[linear-gradient(180deg,#FAF4E3_3%,#F5E4E3_10%,#F5E4E3_89%,#FAF4E3_98%)] px-4 md:px-16"
 >
-  <div class="mx-auto flex w-full max-w-[1040px] flex-col items-center justify-between gap-12 py-20 md:flex-row">
-    <div class="z-10 w-full lg:max-w-[500px]">
-      <h1 class="text-5xl font-medium leading-[1.4] md:text-7xl">
+  <div class="mx-auto flex w-full max-w-[1040px] flex-col items-center justify-between gap-12 py-20 md:flex-row xl:max-w-[1200px]">
+    <div class="z-10 w-full lg:max-w-[500px] xl:max-w-[560px]">
+      <h1 class="text-[48px] font-medium leading-[1.4] md:text-[72px] animate-hero-text reveal-up reveal-delay-1">
         ゆるく、楽しく<br />
         奈々の<br />
         ポートフォリオ
       </h1>
 
-      <p class="mt-12 font-chiru text-3xl text-text md:mt-20 md:text-[48px]">
+      <p class="mt-12 font-chiru text-3xl text-text md:mt-20 md:text-[48px] animate-hero-text reveal-up reveal-delay-2">
         寝て、忘れよう。
       </p>
     </div>
 
-    <div class="relative h-[400px] w-full max-w-[500px] md:h-[572px] lg:max-w-[600px]">
+    <div class="relative h-[400px] w-full max-w-[500px] md:h-[572px] lg:max-w-[600px] animate-hero-image reveal-up">
       <div class="blob h-full w-full overflow-hidden">
         <img src={top} alt="中山さんの写真" class="h-full w-full object-cover" />
       </div>
@@ -36,13 +36,13 @@ import Character from "/src/assets/character.svg";
     .animate-hero-text {
       opacity: 0;
       transform: translateY(-48px);
-      animation: slideDownFade 2600ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      animation: slideDownFade 3600ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
     }
 
     .animate-hero-image {
       opacity: 0;
       transform: translateY(16px) scale(0.94);
-      animation: popIn 520ms cubic-bezier(0.16, 1, 0.3, 1) 2300ms forwards;
+      animation: popIn 520ms cubic-bezier(0.16, 1, 0.3, 1) 2000ms forwards;
     }
   }
 
@@ -62,7 +62,7 @@ import Character from "/src/assets/character.svg";
 
   @keyframes popIn {
     0% { opacity: 0; transform: translateY(16px) scale(0.94); }
-    60% { opacity: 1; transform: translateY(0) scale(1.06); }
+    60% { opacity: 1; transform: translateY(0) scale(1.08); }
     100% { opacity: 1; transform: translateY(0) scale(1); }
   }
 
@@ -94,8 +94,11 @@ import Character from "/src/assets/character.svg";
 
   .reveal-up {
     opacity: 0;
-    animation: revealUp 700ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
     will-change: transform, opacity, filter;
+  }
+
+  .reveal-up:not(.animate-hero-text):not(.animate-hero-image) {
+    animation: revealUp 700ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
   }
 
   .reveal-delay-1 {

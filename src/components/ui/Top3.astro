@@ -1,0 +1,159 @@
+---
+const items = [
+  { label: "可愛い" },
+  { label: "なんでも教えてくれる" },
+  { label: "優しい" },
+];
+
+const photos = [
+  {
+    src: "/images/top3/1.jpeg",
+    alt: "トップ3写真1",
+    className: "z-10",
+  },
+  {
+    src: "/images/top3/2.jpeg",
+    alt: "トップ3写真2",
+    className: "z-10 lg:ml-auto lg:-translate-x-[100px]",
+  },
+  {
+    src: "/images/top3/3.jpeg",
+    alt: "トップ3写真3",
+    className: "lg:translate-x-[100px] lg:-translate-y-10",
+  },
+  {
+    src: "/images/top3/4.png",
+    alt: "トップ3写真4",
+    className: "lg:ml-auto lg:-translate-y-10",
+  },
+];
+
+const heart = "/images/heart.png";
+
+---
+
+<div class="mt-3" data-reveal-scope="top3">
+  <div class="mx-auto flex w-full max-w-[1024px] flex-col gap-[36px] px-[20px] py-[20px] md:flex-row md:items-stretch md:justify-between md:gap-[102px]">
+    <div class="relative w-full md:w-[292px] md:py-[43px]">
+      <div class="space-y-[12px]">
+        {items.map((item, index) => (
+          <div
+            class:list={[
+              "top3-reveal flex w-full items-center gap-3 rounded-full border border-text bg-white px-2 py-2 md:w-[292px]",
+              index === 1 ? "md:ml-18" : "",
+              index === 2 ? "md:ml-36" : "",
+            ]}
+            data-reveal
+            style={`--delay: ${index * 140}ms;`}
+          >
+            <span class="flex h-[44px] w-[44px] items-center justify-center rounded-full bg-main text-[20px]">
+              {index + 1}
+            </span>
+            <span class="text-[20px]">{item.label}</span>
+          </div>
+        ))}
+      </div>
+      <img
+        src={heart}
+        alt=""
+        aria-hidden="true"
+        class="pointer-events-none absolute -left-1 bottom-20 hidden md:block md:w-[77px]"
+      />
+    </div>
+
+    <div class="relative w-full lg:w-[630px] lg:h-[290px]">
+      <div class="flex flex-nowrap justify-start gap-[20px] overflow-x-auto px-2 pt-3 pb-3 lg:flex-wrap lg:justify-start lg:gap-x-[15px] lg:gap-y-[15px] lg:overflow-visible lg:px-0 lg:pt-0 lg:pb-0">
+        {photos.map((photo) => (
+          <div class={`relative h-[139px] w-[210px] lg:w-[220px] shrink-0 ${photo.className}`}>
+            <div class="absolute inset-0 translate-x-3 translate-y-3 rounded-[16px] border-5 border-[#FEE088] lg:translate-x-3 lg:translate-y-3"></div>
+            <div class="relative z-10 h-full w-full overflow-hidden rounded-[16px]">
+              <img src={photo.src} alt={photo.alt} class="h-full w-full object-cover" />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .top3-reveal {
+    opacity: 0;
+    transform: translate(-18px, -18px);
+    will-change: transform, opacity;
+  }
+
+  .top3-reveal.is-visible {
+    animation: top3-slide 900ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    animation-delay: var(--delay, 0ms);
+  }
+
+  .top3-reveal.no-animate,
+  .top3-reveal.no-animate.is-visible {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+
+  @keyframes top3-slide {
+    to {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .top3-reveal {
+      opacity: 1;
+      transform: none;
+      animation: none;
+    }
+  }
+</style>
+
+<script is:inline>
+  const top3Section = document.querySelector('[data-reveal-scope="top3"]');
+  if (top3Section) {
+    const targets = top3Section.querySelectorAll("[data-reveal]");
+    const setVisible = (el, animate = true) => {
+      el.classList.add("is-visible");
+      if (!animate) el.classList.add("no-animate");
+    };
+    const isAbove = (el) => el.getBoundingClientRect().bottom < 0;
+    const isInView = (el) => {
+      const rect = el.getBoundingClientRect();
+      return rect.top < window.innerHeight && rect.bottom > 0;
+    };
+
+    targets.forEach((el) => {
+      if (isAbove(el)) setVisible(el, false);
+    });
+
+    if (!("IntersectionObserver" in window)) {
+      targets.forEach((el) => setVisible(el, false));
+    } else {
+      let lastY = window.scrollY;
+      const observer = new IntersectionObserver(
+        (entries, obs) => {
+          const currentY = window.scrollY;
+          const scrollingDown = currentY >= lastY;
+          lastY = currentY;
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              setVisible(entry.target, scrollingDown);
+              obs.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.25, rootMargin: "0px 0px -10% 0px" }
+      );
+      targets.forEach((el) => {
+        if (window.scrollY > 0 && isInView(el)) {
+          setVisible(el, false);
+        } else if (!el.classList.contains("is-visible")) {
+          observer.observe(el);
+        }
+      });
+    }
+  }
+</script>
