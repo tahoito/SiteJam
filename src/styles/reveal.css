@@ -441,7 +441,7 @@
 @keyframes hobby-shift {
   to {
     opacity: 1;
-    transform: translate(6px, 6px);
+    transform: translate(10px, 10px);
   }
 }
 
