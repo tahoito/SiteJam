@@ -68,10 +68,16 @@ const heart = "/images/heart.png";
       </div>
     </div>
 
-    <div class="w-full flex lg:hidden overflow-x-auto gap-10 items-center">
-      <PhotoCard photo={photos[0]} />
-      <PhotoCard photo={photos[1]} />
-      <PhotoCard photo={photos[2]} />
-      <PhotoCard photo={photos[3]} />
+    <div class="w-full lg:hidden">
+      <div class="flex overflow-x-auto gap-10 items-center">
+        <PhotoCard photo={photos[0]} />
+        <PhotoCard photo={photos[1]} />
+        <PhotoCard photo={photos[2]} />
+        <PhotoCard photo={photos[3]} />
+      </div>
+      <div class="scroll-hint md:hidden">
+        <span class="scroll-hint-bar"></span>
+        <span class="scroll-hint-arrow"></span>
+      </div>
     </div>
-</div>
+  </div>
