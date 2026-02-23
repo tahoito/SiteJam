@@ -264,6 +264,7 @@
 
 /* Hobbies */
 .hobby-card {
+  --hobby-shift: 6px;
   opacity: 0;
   transform: translateY(-26px);
   will-change: transform, opacity;
@@ -419,7 +420,7 @@
 
 .hobby-card.no-animate .hobby-outline {
   opacity: 1;
-  transform: translate(4px, 4px);
+  transform: translate(var(--hobby-shift), var(--hobby-shift));
   animation: none;
 }
 
@@ -441,7 +442,7 @@
 @keyframes hobby-shift {
   to {
     opacity: 1;
-    transform: translate(10px, 10px);
+    transform: translate(var(--hobby-shift), var(--hobby-shift));
   }
 }
 
