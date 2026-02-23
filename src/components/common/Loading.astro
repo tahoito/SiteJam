@@ -1,0 +1,62 @@
+---
+import Character from "/src/assets/character.svg";
+const { text = "Loading" } = Astro.props;
+---
+
+<div id="loading-screen" class="fixed inset-0 z-[9999] flex items-center justify-center bg-base transition-opacity duration-700">
+  <div class="w-full max-w-[1024px] px-5 md:px-0">
+    <p class="text-center text-[16px]">{text}</p>
+    <h1 id="progress-text" class="mt-4 text-center text-[32px] mb-4">
+      0%
+    </>
+    <div id="progress-wrap" class="relative w-full">
+      <div class="relative flex h-[30px] w-full items-center overflow-hidden rounded-[12px] border border-text/30">
+        <div id="progress-bar" class="h-[25px] w-0 bg-main transition-all duration-300"></div>
+        <div id="progress-character" class="pointer-events-none absolute left-0 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 transition-[left] duration-300">
+          <Character />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  const bar = document.getElementById("progress-bar");
+  const wrap = document.getElementById("progress-wrap");
+  const character = document.getElementById("progress-character");
+  const textEl = document.getElementById("progress-text");
+  const loading = document.getElementById("loading-screen");
+
+  if (!bar || !wrap || !character || !textEl || !loading) {
+    // Fail safe: if markup is missing, do nothing.
+  } else {
+    let progress = 0;
+
+    const interval = window.setInterval(() => {
+      progress += Math.random() * 15;
+
+      if (progress >= 100) {
+        progress = 100;
+        window.clearInterval(interval);
+
+        window.setTimeout(() => {
+          loading.style.opacity = "0";
+          window.setTimeout(() => {
+            loading.style.display = "none";
+          }, 700);
+        }, 300);
+      }
+
+      bar.style.width = progress + "%";
+      textEl.textContent = Math.floor(progress) + "%";
+
+      const wrapWidth = wrap.clientWidth;
+      const charWidth = character.offsetWidth;
+      const minX = charWidth / 2;
+      const maxX = wrapWidth - charWidth / 2;
+      const rawX = (progress / 100) * wrapWidth;
+      const clampedX = Math.max(minX, Math.min(maxX, rawX));
+      character.style.left = clampedX + "px";
+    }, 200);
+  }
+</script>
