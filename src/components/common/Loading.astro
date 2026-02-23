@@ -43,7 +43,6 @@ const { text = "Loading..." } = Astro.props;
   if (!bar || !wrap || !marker || !character || !textEl || !messageEl || !loading) {
     // Fail safe: if markup is missing, do nothing.
   } else {
-    document.body.classList.add("loading-lock");
     let progress = 0;
 
     const interval = window.setInterval(() => {
@@ -59,7 +58,6 @@ const { text = "Loading..." } = Astro.props;
           loading.style.opacity = "0";
           window.setTimeout(() => {
             loading.style.display = "none";
-            document.body.classList.remove("loading-lock");
             document.body.classList.add("loading-done");
           }, 700);
         }, 300);

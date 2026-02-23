@@ -392,6 +392,32 @@
   }
 }
 
+/* Character */
+.character-sway {
+  animation: character-sway 4s ease-in-out infinite;
+  transform-origin: center;
+  will-change: transform;
+}
+
+@keyframes character-sway {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(8px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .character-sway {
+    animation: none;
+    transform: none;
+  }
+}
+
 .hobby-outline {
   opacity: 0;
   transform: translate(0, 0);
