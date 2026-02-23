@@ -1,13 +1,18 @@
 ---
-import SectionTitle from "../ui/SectionTitle.astro";
-import SubTitle from "../ui/SubTitle.astro";
+import { SectionTitle, SubTitle, Schedule, RodeMapContent, CurrentJob, Top3 } from "../index";
 const { id } = Astro.props;
 ---
 
 <section id={id}>
   <SectionTitle text="Work" />
   <SubTitle text="今の仕事" />
-  <SubTitle text="1日のスケジュール" />
+  <CurrentJob />
+  <div class="flex flex-col my-8">
+    <SubTitle text="1日のスケジュール" />
+    <Schedule />
+  </div>
   <SubTitle text="これまでの歩み" />
+  <RodeMapContent />
   <SubTitle text="中山さんの好きなところ ベスト3" />
+  <Top3 />
 </section>

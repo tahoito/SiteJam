@@ -1,0 +1,87 @@
+---
+import { Image } from 'astro:assets';
+import Eat from "../../assets/eat.png";
+import Human from "../../assets/human.png";
+import Time from "../../assets/time.png";
+---
+
+<div class="w-full overflow-x-auto overflow-y-hidden pb-4 [-ms-overflow-style:none]">
+  <div class="w-[1024px]">
+    <!-- 時間 -->
+    <div class="flex h-12 justify-between gap-4 px-2">
+      <div class="flex-[4] flex items-center justify-start text-[1.6rem] text-text">9:00</div>
+      <div class="flex-1 flex items-center justify-start text-[1.6rem] text-text">13:00</div>
+      <div class="flex-[4] flex items-center justify-between text-[1.6rem] text-text">
+        <div>14:00</div>
+        <div>18:00</div>
+      </div>
+    </div>
+    <div class="flex h-14 justify-between gap-4 mb-4">
+      <div class="flex-[4] flex items-center justify-center bg-[#FDECEC] text-[1.6rem] text-text rounded-sm">
+        勤務
+      </div>
+      <div class="flex-1 flex items-center justify-center bg-main text-[1.6rem] text-text rounded-sm">
+        昼食
+      </div>
+      <div class="flex-[4] flex items-center justify-center bg-[#EED2D0] text-[1.6rem] text-text rounded-sm">
+        勤務
+      </div>
+    </div>
+
+    <!-- 内容 -->
+    <div class="flex w-full gap-1">
+      <div class="flex-1 border-l-4 border-main pl-4 relative">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="text-[1.4rem] font-bold text-text">9:00 ~</span>
+        </div>
+        <h3 class="text-[2rem] text-text mb-3">出勤・連絡確認</h3>
+        <p class="text-[1.4rem] text-text leading-relaxed w-[70%]">
+          Slackやメールを確認・整理します。メンバーからの連絡は優先して対応します。
+        </p>
+        <Image src={Human} alt="人間のイラスト" class="absolute bottom-0 right-[-8px]" />
+      </div>
+
+      <div class="flex-1 border-l-4 border-main pl-4">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="text-[1.4rem] font-bold text-text">10:30 ~</span>
+        </div>
+        <h3 class="text-[2rem] text-text mb-3">業務・調整</h3>
+        <p class="text-[1.4rem] text-text leading-relaxed w-[70%]">
+          発注や書類作成などの業務を進めます。急ぎの対応は、状況を見ながら調整します。
+        </p>
+      </div>
+
+      <div class="flex-1 border-l-4 border-main pl-4 relative">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="text-[1.4rem] font-bold text-text">13:00 ~</span>
+        </div>
+        <h3 class="text-[2rem] text-text mb-3">お昼休み</h3>
+        <p class="text-[1.4rem] text-text leading-relaxed w-[70%]">
+          お昼ごはんを食べながら、少しリフレッシュ。メンバーとお話しすることもあります。
+        </p>
+        <Image src={Eat} alt="ごはんのイラスト" class="absolute top-0 right-[-6px]" />
+      </div>
+
+      <div class="flex-1 border-l-4 border-main pl-4 relative"> 
+        <div class="flex items-center gap-2 mb-2">
+          <span class="text-[1.4rem] font-bold text-text">14:00 ~</span>
+        </div>
+        <h3 class="text-[2rem] text-text mb-3">イベント企画</h3>
+        <p class="text-[1.4rem] text-text leading-relaxed w-[70%]">
+          イベントの準備や企画の打ち合わせで、「どうしたら楽しんでもらえるか」を考えます。
+        </p>
+        <Image src={Time} alt="時計のイラスト" class="absolute bottom-0 right-[-6px]" />
+      </div>
+
+      <div class="flex-1 border-l-4 border-main pl-4">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="text-[1.4rem] font-bold text-text">17:00 ~</span>
+        </div>
+        <h3 class="text-[2rem] text-text mb-3">連絡確認・退勤</h3>
+        <p class="text-[1.4rem] text-text leading-relaxed w-[70%]">
+          返信が必要な連絡を確認してから、明日の準備をしてから退勤します。
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

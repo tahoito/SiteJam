@@ -1,10 +1,46 @@
 ---
-import SectionTitle from "../ui/SectionTitle.astro";
-import SubTitle from "../ui/SubTitle.astro";
+import { SectionTitle, SubTitle } from "../index";
 const { id } = Astro.props;
+const memories = [
+  { src: "/images/life/1.jpeg", alt: "思い出1", label: "兵庫の妖怪ベンチ" },
+  { src: "/images/life/2.jpeg", alt: "思い出2", label: "長野のご当地パン" },
+  { src: "/images/life/3.jpeg", alt: "思い出3", label: "友達と温泉旅行" },
+  { src: "/images/life/4.jpeg", alt: "思い出4", label: "夏祭り" },
+];
+const tape = [
+  { src: "/images/life/tape1.png", className: "-rotate-6" },
+  { src: "/images/life/tape2.png", className: "rotate-6" },
+  { src: "/images/life/tape3.png", className: "rotate-3" },
+  { src: "/images/life/tape4.png", className: "-rotate-3" },
+];
 ---
 
-<section id={id}>
+<section id={id} data-reveal-scope="life">
   <SectionTitle text="Life" />
   <SubTitle text="奈々の思い出" />
+    <div class="mt-7 mb-5">
+      <div class="mx-auto flex w-full max-w-[1024px] flex-wrap justify-between px-5">
+        {memories.map((item, index) => {
+          const tapeItem = tape[index % tape.length];
+          return (
+            <div
+              class="life-card relative mb-8 w-[48%] rounded-[12px] border border-text/30 bg-white p-[16px] md:mb-0 md:w-[23%]"
+              data-reveal
+              style={`--delay:${index * 90}ms`}
+            >
+              <img
+                src={tapeItem.src}
+                alt=""
+                aria-hidden="true"
+                class={`life-tape pointer-events-none absolute -top-8 left-1/2 z-10 w-[120px] -translate-x-1/2 md:w-[132px] ${tapeItem.className}`}
+              />
+              <div class="aspect-square overflow-hidden rounded-[4px] mb-5 pb-4">
+                <img src={item.src} alt={item.alt} class="h-full w-full object-cover" />
+              </div>
+              <p class="mt-0 text-center text-[16px] font-chiru py-3">{item.label}</p>
+            </div>
+          );
+        })}
+      </div>
+    </div>
 </section>

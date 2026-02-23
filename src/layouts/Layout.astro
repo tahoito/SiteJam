@@ -1,5 +1,7 @@
 ---
 import "../styles/global.css";
+import Loading from "../components/common/Loading.astro";
+import revealScript from "../scripts/reveal.ts?url";
 const { title = "Profile" } = Astro.props;
 ---
 
@@ -13,10 +15,13 @@ const { title = "Profile" } = Astro.props;
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="preload" href="/fonts/chirufont.ttf" as="font" type="font/ttf" crossorigin>
 
 </head>
 
 <body class="font-sans bg-base text-text">
+  <Loading />
   <slot />
+  <script type="module" src={revealScript}></script>
 </body>
 </html>

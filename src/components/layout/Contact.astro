@@ -1,11 +1,30 @@
 ---
-import SectionTitle from "../ui/SectionTitle.astro";
-import SubTitle from "../ui/SubTitle.astro";
+import { SectionTitle, SubTitle } from "../index";
 const { id } = Astro.props;
 ---
 
-<section id={id}>
+<section id={id} data-reveal-scope="contact">
   <SectionTitle text="Contact" />
-  <SubTitle text="連絡先" />
-  <SubTitle text="奈々からのメッセージ" />
+  <div class="py-3 grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-[120px]">
+    <div>
+      <SubTitle text="連絡先" />
+      <div class="mt-4 space-y-1 text-[16px] md:px-10 contact-info" data-reveal>
+        <div class="grid grid-cols-[80px_1fr] items-center gap-6">
+          <span>Tel</span>
+          <span>050-1706-2803</span>
+        </div>
+        <div class="grid grid-cols-[80px_1fr] items-center gap-6">
+          <span>Email</span>
+          <span>xxxxxxxx@vantan.com</span>
+        </div>
+      </div>
+    </div>
+    <div>
+      <SubTitle text="奈々からのメッセージ" />
+      <p class="mt-4 text-[16px] font-chiru md:px-10 contact-message" data-reveal>
+        元気じゃなくても大丈夫！<br />
+        一緒に、楽しい時間を過ごそう！
+      </p>
+    </div>
+  </div>
 </section>

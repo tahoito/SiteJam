@@ -1,12 +1,83 @@
 ---
-import SectionTitle from "../ui/SectionTitle.astro";
-import SubTitle from "../ui/SubTitle.astro";
 const { id } = Astro.props;
+import { AboutPic, AboutFrame, Flower, SectionTitle, SubTitle, Hobbies } from "../index";
+const comedy = "/images/hobbies/comedy.png";
+const camera = "/images/hobbies/camera.png";
+const jumprope = "/images/hobbies/jumprope.png";
+const hobbies = [
+  {
+    title: "お笑い",
+    description: "高校時代、演劇部で脚本を書いてて、その頃からコントを見るのが好きです。",
+    image: comedy,
+    alt: "comedy",
+    border: "primary",
+  },
+  {
+    title: "アニメ映画鑑賞",
+    description: "時間があるときはアニメ映画や流行してる映画を見てます。",
+    image: camera,
+    alt: "camera",
+    border: "muted",
+  },
+  {
+    title: "縄跳び",
+    description: "小学校の頃、鉄棒が嫌な反動で好きになり、今は特技です。",
+    image: jumprope,
+    alt: "jumprope",
+    border: "muted",
+  },
+];
+
 ---
 
-<section id={id}>
+<section id={id} class="mt-6" data-reveal-scope="about">
   <SectionTitle text="About" />
-  <SubTitle text="自己紹介" />
-  <SubTitle text="趣味・特技" />
+  <div class="space-y-16">
+    <div>
+      <SubTitle text="自己紹介" />
+      <div class="grid gap-10 md:grid-cols-[minmax(0,420px)_1fr] md:items-center md:gap-12 lg:grid-cols-[minmax(0,520px)_1fr] lg:gap-16">
+        <div class="w-full">
+          <div class="relative mt-4 inline-block w-full max-w-[520px] md:max-w-[420px] lg:max-w-[520px] aspect-[520/464] overflow-hidden sm:overflow-visible sm:mb-3">
+            <div class="absolute left-0 top-0 z-20 -translate-y-4 text-[32px] sm:text-[44px] [text-shadow:0_4px_10px_rgba(50,50,50,0.5)]">
+              <span class="about-reveal inline-block" data-reveal style="--delay: 0ms;">中山奈々</span>
+            </div>
+            <AboutFrame class="absolute inset-0 -z-0 h-full w-full origin-top scale-[0.96] translate-x-2 translate-y-2.5 sm:origin-center sm:scale-100 sm:translate-x-3 sm:translate-y-3" />
+            <AboutPic class="absolute inset-0 z-10 h-full w-full origin-top scale-[0.96] sm:origin-center sm:scale-100" />
+            <Flower class="absolute z-20 right-[-16px] bottom-0 w-[80px] h-auto sm:right-[-40px] sm:bottom-[-10px] md:right-[-60px] md:w-[160px]" />
+          </div>
+        </div>
+        <div class="w-full">
+          <div class="w-full space-y-4">
+            <div class="about-reveal grid grid-cols-[180px_1fr] sm:grid-cols-[200px_1fr] lg:grid-cols-[220px_1fr] items-center gap-8 border-b-[0.5px] border-text/30 py-3" data-reveal style="--delay: 200ms;">
+              <span class="text-[20px]">生年月日</span>
+              <span class="font-chiru text-[16px]">2001年5月21日</span>
+            </div>
+            <div class="about-reveal grid grid-cols-[180px_1fr] sm:grid-cols-[200px_1fr] lg:grid-cols-[220px_1fr] items-center gap-8 border-b-[0.5px] border-text/30 py-3" data-reveal style="--delay: 400ms;">
+              <span class="text-[20px]">血液型</span>
+              <span class="font-chiru text-[16px]">B型</span>
+            </div>
+            <div class="about-reveal grid grid-cols-[180px_1fr] sm:grid-cols-[200px_1fr] lg:grid-cols-[220px_1fr] items-center gap-8 border-b-[0.5px] border-text/30 py-3" data-reveal style="--delay: 600ms;">
+              <span class="text-[20px]">星座</span>
+              <span class="font-chiru text-[16px]">双子座</span>
+            </div>
+            <div class="about-reveal grid grid-cols-[180px_1fr] sm:grid-cols-[200px_1fr] lg:grid-cols-[220px_1fr] items-center gap-8 border-b-[0.5px] border-text/30 py-3" data-reveal style="--delay: 800ms;">
+              <span class="text-[20px]">MBTI</span>
+              <span class="font-chiru text-[16px]">ENFP</span>
+            </div>
+          </div>
+          <p class="about-reveal mt-15 text-[16px]" data-reveal style="--delay: 1000ms;">
+            人と話すことが好きで、話してくれると喜ぶので、<br class="hidden sm:block" />
+            ぜひたくさん話して仲良くなりたいです！
+          </p>
+        </div>
+      </div>
+    </div>
 
+    <div>
+      <SubTitle text="趣味・特技" />
+      <div class="mt-6">
+        <Hobbies anys={hobbies} delayBase={800} />
+      </div>
+    </div>
+  </div>
 </section>

@@ -1,32 +1,48 @@
 ---
-import Logo from "/src/assets/logo.svg";
-import { Menu, X } from "lucide-astro";
+import { Logo, Open, Close } from "../index";
 ---
 
-<header id="top" class="fixed left-0 top-0 z-50 w-full bg-base">
-    <div class="mx-auto w-full max-w-5xl px-5 md:px-0">
-        <div class="flex items-center justify-between gap-4 pt-[26px]">
-            <a href="#top" class="shrink-0 hover:opacity-80">
-                <Logo class="h-10 w-auto sm:h-12 md:h-17" />
-            </a>
+<header id="site-header" class="fixed left-0 top-0 z-50 w-full bg-base px-5 md:px-16 lg:px-0">
+  <div class="mx-auto flex max-w-[1040px] items-center justify-between gap-4 pt-[20px] pb-[10px]">
+    <a href="#top" class="shrink-0 hover:opacity-80">
+      <Logo class="h-10 w-auto sm:h-12 md:h-17" />
+    </a>
 
-            <nav class="hidden md:flex flex-wrap items-center justify-end gap-x-10">
-                <a href="#top" class="hover:opacity-60"><h3 class="text-2xl">Home</h3></a>
-                <a href="#about" class="hover:opacity-60"><h3 class="text-2xl">About</h3></a>
-                <a href="#work" class="hover:opacity-60"><h3 class="text-2xl">Work</h3></a>
-                <a href="#life" class="hover:opacity-60"><h3 class="text-2xl">Life</h3></a>
-                <a href="#contact" class="hover:opacity-60"><h3 class="text-2xl">Contact</h3></a>
-            </nav>
+    <nav class="hidden md:flex items-center gap-x-8 lg:gap-x-12">
+      <a href="#top" class="text-[2.4rem] hover:opacity-60">Home</a>
+      <a href="#about" class="text-[2.4rem] hover:opacity-60">About</a>
+      <a href="#work" class="text-[2.4rem] hover:opacity-60">Work</a>
+      <a href="#life" class="text-[2.4rem] hover:opacity-60">Life</a>
+      <a href="#contact" class="text-[2.4rem] hover:opacity-60">Contact</a>
+    </nav>
 
-            <details class="relative md:hidden">
-                <summary
-                class="list-none rounded-2xl p-2 hover:bg-black/5 focus:outline-none"
-                aria-label="Open menu"
-                >
-                    <Menu class="h-11 w-11 text-text" />
-                </summary>
+    <details class="relative md:hidden">
+      <summary class="list-none rounded-2xl p-2 hover:bg-black/5 focus:outline-none" aria-label="Open menu">
+        <Open class="h-11 w-11 text-text" />
+      </summary>
 
-                <div class="absolute right-0 mt-3 w-[220px] rounded-3xl border border-zinc-200 bg-base p-3">
+                <div class="fixed inset-0 z-50 bg-base/95 backdrop-blur-sm">
+                    <div class="mx-auto h-full w-full max-w-5xl px-5">
+                        <div class="flex items-center justify-between pt-[26px]">
+                            <Logo class="h-8 w-auto" />
+                            <button
+                              type="button"
+                              class="rounded-2xl p-2 hover:bg-black/5"
+                              aria-label="Close menu"
+                              onclick="this.closest('details')?.removeAttribute('open')"
+                            >
+                              <Close class="h-9 w-9 text-text" />
+                            </button>
+                        </div>
+
+                        <nav class="mt-12 flex flex-col gap-4 text-3xl">
+                            <a class="hover:opacity-60" href="#top" onclick="this.closest('details')?.removeAttribute('open')">Home</a>
+                            <a class="hover:opacity-60" href="#about" onclick="this.closest('details')?.removeAttribute('open')">About</a>
+                            <a class="hover:opacity-60" href="#work" onclick="this.closest('details')?.removeAttribute('open')">Work</a>
+                            <a class="hover:opacity-60" href="#life" onclick="this.closest('details')?.removeAttribute('open')">Life</a>
+                            <a class="hover:opacity-60" href="#contact" onclick="this.closest('details')?.removeAttribute('open')">Contact</a>
+                        </nav>
+                    </div>
                 </div>
             </details>
         </div>
