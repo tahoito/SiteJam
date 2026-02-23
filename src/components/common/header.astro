@@ -1,7 +1,5 @@
 ---
-import Logo from "/src/assets/logo.svg";
-import Menu from "/src/assets/menu.svg";
-import X from "/src/assets/x.svg";
+import { Logo, Open, Close } from "../index";
 ---
 
 <header id="site-header" class="fixed left-0 top-0 z-50 w-full bg-base px-5 md:px-16 lg:px-0">
@@ -20,7 +18,7 @@ import X from "/src/assets/x.svg";
 
     <details class="relative md:hidden">
       <summary class="list-none rounded-2xl p-2 hover:bg-black/5 focus:outline-none" aria-label="Open menu">
-        <Menu class="h-11 w-11 text-text" />
+        <Open class="h-11 w-11 text-text" />
       </summary>
 
                 <div class="fixed inset-0 z-50 bg-base/95 backdrop-blur-sm">
@@ -33,7 +31,7 @@ import X from "/src/assets/x.svg";
                               aria-label="Close menu"
                               onclick="this.closest('details')?.removeAttribute('open')"
                             >
-                              <X class="h-9 w-9 text-text" />
+                              <Close class="h-9 w-9 text-text" />
                             </button>
                         </div>
 
