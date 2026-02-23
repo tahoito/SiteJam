@@ -64,6 +64,14 @@ const { anys = [], delayBase = 0 } = Astro.props as { anys?: HobbyItem[]; delayB
     animation-delay: var(--delay, 0ms);
   }
 
+  .hobby-card.no-animate,
+  .hobby-card.no-animate .hobby-outline,
+  .hobby-card.no-animate .hobby-text {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+
   .hobby-card.is-visible .hobby-outline {
     animation: hobby-shift 520ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
     animation-delay: calc(var(--delay, 0ms) + 420ms);
