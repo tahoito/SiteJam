@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import Loading from "../components/common/Loading.astro";
+import revealScript from "../scripts/reveal.ts?url";
 const { title = "Profile" } = Astro.props;
 ---
 
@@ -21,5 +22,6 @@ const { title = "Profile" } = Astro.props;
 <body class="font-sans bg-base text-text">
   <Loading />
   <slot />
+  <script type="module" src={revealScript}></script>
 </body>
 </html>

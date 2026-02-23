@@ -35,11 +35,12 @@ const { text = "Loading..." } = Astro.props;
   const bar = document.getElementById("progress-bar");
   const wrap = document.getElementById("progress-wrap");
   const marker = document.getElementById("progress-marker");
+  const character = document.getElementById("progress-character");
   const textEl = document.getElementById("progress-text");
   const messageEl = document.getElementById("progress-message");
   const loading = document.getElementById("loading-screen");
 
-  if (!bar || !wrap || !marker || !textEl || !messageEl || !loading) {
+  if (!bar || !wrap || !marker || !character || !textEl || !messageEl || !loading) {
     // Fail safe: if markup is missing, do nothing.
   } else {
     let progress = 0;
@@ -75,12 +76,15 @@ const { text = "Loading..." } = Astro.props;
       }
 
       const wrapWidth = wrap.clientWidth;
-      const markerWidth = marker.offsetWidth;
-      const minX = markerWidth / 2;
-      const maxX = wrapWidth - markerWidth / 2;
+      const charWidth = character.offsetWidth;
+      const minX = charWidth / 2;
+      const maxX = wrapWidth - charWidth / 2;
       const rawX = (progress / 100) * wrapWidth;
       const clampedX = Math.max(minX, Math.min(maxX, rawX));
       marker.style.left = clampedX + "px";
+      if (progress >= 100) {
+        marker.style.left = maxX + "2px";
+      }
     }, 150);
   }
 </script>
