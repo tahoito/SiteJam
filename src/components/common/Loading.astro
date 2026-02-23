@@ -1,19 +1,28 @@
 ---
 import Character from "/src/assets/character.svg";
-const { text = "Loading" } = Astro.props;
+const { text = "Loading..." } = Astro.props;
 ---
 
 <div id="loading-screen" class="fixed inset-0 z-[9999] flex items-center justify-center bg-base transition-opacity duration-700">
-  <div class="w-full max-w-[1024px] px-5 md:px-0">
-    <p class="text-center text-[16px]">{text}</p>
-    <h1 id="progress-text" class="mt-4 text-center text-[32px] mb-4">
+  <div class="w-full max-w-[1024px] px-5 md:px-0 -translate-y-6">
+    <h1 class="text-center text-[32px] text-title">{text}</h1>
+    <p id="progress-text" class="mt-2 mb-[100px] font-bold text-center text-[60px] text-title leading-none">
       0%
-    </>
-    <div id="progress-wrap" class="relative w-full">
+    </p>
+    <div id="progress-wrap" class="mt-4 relative w-full">
       <div class="relative flex h-[30px] w-full items-center overflow-hidden rounded-[12px] border border-text/30">
         <div id="progress-bar" class="h-[25px] w-0 bg-main transition-all duration-300"></div>
-        <div id="progress-character" class="pointer-events-none absolute left-0 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 transition-[left] duration-300">
-          <Character />
+      </div>
+      <div id="progress-marker" class="pointer-events-none absolute left-0 top-0 z-10 -translate-x-1/2 transition-[left] duration-300">
+        <div class="flex flex-col items-center">
+          <div id="progress-character" class="-translate-y-1/2">
+            <Character class="z-20"/>
+          </div>
+          <div id="progress-bubble" class="relative -mt-3 rounded-[12px] border border-text/30 bg-white px-3 py-2 text-[16px]">
+            <span id="progress-message">ちょっと待っててね</span>
+            <span class="absolute -top-2 left-1/2 h-0 w-0 -translate-x-1/2 border-x-[6px] border-b-[8px] border-x-transparent border-b-white"></span>
+            <span class="absolute -top-[9px] left-1/2 h-0 w-0 -translate-x-1/2 border-x-[7px] border-b-[9px] border-x-transparent border-b-text/30"></span>
+          </div>
         </div>
       </div>
     </div>
@@ -23,17 +32,20 @@ const { text = "Loading" } = Astro.props;
 <script is:inline>
   const bar = document.getElementById("progress-bar");
   const wrap = document.getElementById("progress-wrap");
-  const character = document.getElementById("progress-character");
+  const marker = document.getElementById("progress-marker");
   const textEl = document.getElementById("progress-text");
+  const messageEl = document.getElementById("progress-message");
   const loading = document.getElementById("loading-screen");
 
-  if (!bar || !wrap || !character || !textEl || !loading) {
+  if (!bar || !wrap || !marker || !textEl || !messageEl || !loading) {
     // Fail safe: if markup is missing, do nothing.
   } else {
     let progress = 0;
 
     const interval = window.setInterval(() => {
-      progress += Math.random() * 15;
+      const speed = 0.09 + (progress / 100) * 0.26;
+      const variance = 0.5 + (progress / 100) * 1.6;
+      progress += (Math.random() * variance + 0.25) * (1 + speed * 10);
 
       if (progress >= 100) {
         progress = 100;
@@ -49,14 +61,24 @@ const { text = "Loading" } = Astro.props;
 
       bar.style.width = progress + "%";
       textEl.textContent = Math.floor(progress) + "%";
+      const rounded = Math.floor(progress);
+      if (rounded < 30) {
+        messageEl.textContent = "みんな待っててね";
+      } else if (rounded < 60) {
+        messageEl.textContent = "奈々頑張ってるよ!!";
+      } else if (rounded < 100) {
+        messageEl.textContent = "もう少しだぁぁぁぁあああ!!!";
+      } else {
+        messageEl.textContent = "完了！";
+      }
 
       const wrapWidth = wrap.clientWidth;
-      const charWidth = character.offsetWidth;
-      const minX = charWidth / 2;
-      const maxX = wrapWidth - charWidth / 2;
+      const markerWidth = marker.offsetWidth;
+      const minX = markerWidth / 2;
+      const maxX = wrapWidth - markerWidth / 2;
       const rawX = (progress / 100) * wrapWidth;
       const clampedX = Math.max(minX, Math.min(maxX, rawX));
-      character.style.left = clampedX + "px";
-    }, 200);
+      marker.style.left = clampedX + "px";
+    }, 150);
   }
 </script>
