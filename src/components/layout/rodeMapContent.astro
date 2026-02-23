@@ -1,5 +1,5 @@
 ---
-import { Pin, MapText, Image, backgroundImagePC, backgroundImageSP, recently, Concafe, highSchoolGraduation, character } from "../index";
+import { Pin, MapText, Image, backgroundImagePC, backgroundImageSP, recently, Concafe, highSchoolGraduation, character, Concafe_sp, graduation_sp, recently_sp, Star } from "../index";
 ---
 
 <!-- pc用 -->
@@ -22,10 +22,12 @@ import { Pin, MapText, Image, backgroundImagePC, backgroundImageSP, recently, Co
   <Image src={character} alt="キャラクターの画像" class="absolute bottom-0 right-0" />
 </div>
 
-<!-- sp用 -->
+<!-- sp用（旧レイアウト） -->
+<!--
 <div class="lg:hidden block bg-cover bg-center w-[100vw] h-[80vh] relative work-reveal" data-reveal style={`background-image: url(${backgroundImageSP.src}); background-position: center 80%; --delay: 120ms;`}>
-  <MapText />
-  <!-- ピン -->
+  <div class="flex justify-center">
+    <MapText />
+  </div>
   <div class="absolute bottom-[5%] left-0 work-reveal" data-reveal style="--delay: 0ms;">
     <Pin year="2020" title="高校卒業" contentText="三重県の飯野高校を卒業しました。" />
   </div>
@@ -35,6 +37,67 @@ import { Pin, MapText, Image, backgroundImagePC, backgroundImageSP, recently, Co
   <div class="absolute top-[33%] right-[15%] work-reveal" data-reveal style="--delay: 240ms;">
     <Pin year="2025" title="転職" contentText="新しい仕事を探して、現在はバンタンのスタッフとして働いてます。"/>
   </div>
-  <!-- 画像 -->
   <Image src={character} alt="キャラクターの画像" class="absolute bottom-0 right-[5%] w-[80px]" />
+</div>
+-->
+
+<!-- sp用（新レイアウト） -->
+<div class="lg:hidden block bg-cover bg-center w-[100vw] h-[80vh] relative work-reveal" data-reveal style={`background-image: url(${backgroundImageSP.src}); --delay: 120ms;`}>
+  <MapText />
+  <div class="mt-12">
+    <div class="flex overflow-x-auto gap-10 pb-6 items-start px-[calc(50vw-110px)] md:px-6">
+      <div class="flex w-[220px] shrink-0">
+        <div class="w-full h-auto bg-base/90 rounded-[12px] border-[2px] border-accent p-[8px]">
+          <div class="w-full h-[120px] overflow-hidden rounded-[12px]">
+            <Image src={graduation_sp} alt="高校卒業の画像" class="h-full w-full object-cover" />
+          </div>
+          <div class="mt-4 text-[2rem] flex items-center gap-2">
+            <Star class="w-[20px] fill-accent stroke-accent"/>
+            2020
+            高校卒業
+          </div>
+          <p class="text-[1.6rem] text-text leading-snug">
+            三重県の飯野高校を卒業しました。
+          </p>
+        </div>
+      </div>
+
+      <div class="flex w-[220px] shrink-0">
+        <div class="w-full h-auto bg-base/90 rounded-[12px] border-[2px] border-accent p-[8px]">
+          <div class="w-full h-[120px] overflow-hidden rounded-[12px]">
+            <Image src={Concafe_sp} alt="コンカフェの画像" class="h-full w-full object-cover" />
+          </div>
+          <div class="mt-4 text-[2rem] flex items-center gap-2">
+            <Star class="w-[20px] fill-accent stroke-accent"/>
+            2021
+            就職
+          </div>
+          <p class="text-[1.6rem] text-text leading-snug">
+            コンカフェのバイトを辞めて、ALSOKに就職し、3年間事務を担当しました。
+          </p>
+        </div>
+      </div>
+
+      <div class="flex w-[220px] shrink-0">
+        <div class="w-full h-auto bg-base/90 rounded-[12px] border-[2px] border-accent p-[8px]">
+          <div class="w-full h-[120px] overflow-hidden rounded-[12px]">
+            <Image src={recently_sp} alt="最近の画像" class="h-full w-full object-cover" />
+          </div>
+          <div class="mt-4 text-[2rem] flex items-center gap-2">
+            <Star class="w-[20px] fill-accent stroke-accent"/>
+            2025
+            転職
+          </div>
+          <p class="text-[1.6rem] text-text leading-snug">
+            新しい仕事を探して、現在はバンタンのスタッフとして働いてます。
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-hint md:hidden mt-2">
+      <span class="scroll-hint-bar"></span>
+      <span class="scroll-hint-arrow"></span>
+    </div>
+  </div>
 </div>
