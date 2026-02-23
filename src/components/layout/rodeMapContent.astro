@@ -3,31 +3,37 @@ import { Pin, MapText, Image, backgroundImagePC, backgroundImageSP, recently, co
 ---
 
 <!-- pc用 -->
-<div class="lg:block hidden bg-cover bg-center max-w-[1024px] aspect-[1024/740] relative" style={`background-image: url(${backgroundImagePC.src})`}>
+<div class="lg:block hidden bg-cover bg-center max-w-[1024px] aspect-[1024/740] relative work-reveal" data-reveal style={`background-image: url(${backgroundImagePC.src}); --delay: 120ms;`}>
   <MapText />
   <!-- ピン -->
-  <Pin year="2024" title="転職" contentText="新しい仕事を探して、現在はバンタンのスタッフとして働いてます。" className="absolute top-0 right-[5%]" />
-  <Pin year="2021" title="就職" contentText="コンカフェのバイトを辞めて、ALSOKに就職し、3年間事務を担当しました。" className="absolute bottom-[25%] right-[20%]" />
-  <Pin year="2020" title="高校卒業" contentText="三重県の飯野高校を卒業しました。" className="absolute bottom-[2.7%] left-[1%]" />
+  <div class="work-reveal absolute bottom-[2.7%] left-[1%]" data-reveal style="--delay: 0ms;">
+    <Pin year="2020" title="高校卒業" contentText="三重県の飯野高校を卒業しました。" />
+  </div>
+  <div class="work-reveal absolute bottom-[25%] right-[20%]" data-reveal style="--delay: 120ms;">
+    <Pin year="2021" title="就職" contentText="コンカフェのバイトを辞めて、ALSOKに就職し、3年間事務を担当しました。" />
+  </div>
+  <div class="work-reveal absolute top-0 right-[5%]" data-reveal style="--delay: 240ms;">
+    <Pin year="2024" title="転職" contentText="新しい仕事を探して、現在はバンタンのスタッフとして働いてます。" />
+  </div>
   <!-- 画像 -->
-  <Image src={recently} alt="最近の画像" class="absolute top-[25%] right-0" />
-  <Image src={conCafe} alt="コンカフェの画像" class="absolute top-[40%] right-[47%]" />
   <Image src={highSchoolGraduation} alt="高校卒業の画像" class="absolute bottom-[25%] left-[2%]" />
+  <Image src={conCafe} alt="コンカフェの画像" class="absolute top-[40%] right-[47%]" />
+  <Image src={recently} alt="最近の画像" class="absolute top-[25%] right-0" />
   <Image src={character} alt="キャラクターの画像" class="absolute bottom-0 right-0" />
 </div>
 
 <!-- sp用 -->
-<div class="lg:hidden block bg-cover bg-center w-[100vw] h-[80vh] relative" style={`background-image: url(${backgroundImageSP.src})`}>
+<div class="lg:hidden block bg-cover bg-center w-[100vw] h-[80vh] relative work-reveal" data-reveal style={`background-image: url(${backgroundImageSP.src}); --delay: 120ms;`}>
   <MapText />
   <!-- ピン -->
-  <div  class="absolute top-[33%] right-[15%]" >
-    <Pin year="2024" title="転職" contentText="新しい仕事を探して、現在はバンタンのスタッフとして働いてます。"/>
+  <div class="absolute bottom-[5%] left-0 work-reveal" data-reveal style="--delay: 0ms;">
+    <Pin year="2020" title="高校卒業" contentText="三重県の飯野高校を卒業しました。" />
   </div>
-  <div class="absolute top-[56%] right-[20%]">
+  <div class="absolute top-[56%] right-[20%] work-reveal" data-reveal style="--delay: 120ms;">
     <Pin year="2021" title="就職" contentText="コンカフェのバイトを辞めて、ALSOKに就職し、3年間事務を担当しました。" />
   </div>
-  <div class="absolute bottom-[5%] left-0">
-    <Pin year="2020" title="高校卒業" contentText="三重県の飯野高校を卒業しました。" />
+  <div class="absolute top-[33%] right-[15%] work-reveal" data-reveal style="--delay: 240ms;">
+    <Pin year="2024" title="転職" contentText="新しい仕事を探して、現在はバンタンのスタッフとして働いてます。"/>
   </div>
   <!-- 画像 -->
   <Image src={character} alt="キャラクターの画像" class="absolute bottom-0 right-[5%] w-[80px]" />
