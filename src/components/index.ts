@@ -27,7 +27,7 @@ export { default as Hobbies } from "./ui/hobbies.astro";
 export { Image } from "astro:assets";
 
 // image
-export { default as dandelion } from "../assets/flower/Dandelion.png";
+export { default as dandelion } from "../assets/material/Dandelion.png";
 export { default as workBg } from "../assets/nakayama/work-bg.png";
 export { default as workBgOutline } from "../assets/outline/work-outline.png";
 export { default as character } from "../assets/nakayama/character.png";
@@ -39,10 +39,13 @@ export { default as backgroundImageSP } from "../assets/rodeMap-bg-sp.png";
 export { default as Logo } from "/src/assets/logo.svg";
 export { default as Open } from "/src/assets/open.svg";
 export { default as Close } from "/src/assets/close.svg";
-export { default as Character } from "/src/assets/character.svg";
+export { default as Character } from "/src/assets/material/character.svg";
 export { default as AboutPic } from "/src/assets/about.svg";
 export { default as AboutFrame } from "/src/assets/about_frame.svg";
-export { default as Flower } from "/src/assets/flower_pink.svg";
+export { default as Flower } from "/src/assets/material/flower_pink.svg";
+export { default as Eat } from "/src/assets/material/eat.png";
+export { default as Human } from "/src/assets/material/human.png";
+export { default as Time } from "/src/assets/material/time.png";
 
 // lucide
 export { Star } from "lucide-astro";
