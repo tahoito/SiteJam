@@ -32,7 +32,6 @@ export { default as workBg } from "../assets/nakayama/work-bg.png";
 export { default as workBgOutline } from "../assets/outline/work-outline.png";
 export { default as character } from "../assets/nakayama/character.png";
 export { default as conCafe } from "../assets/nakayama/Concafe.png";
-export { default as conCafe } from "../assets/nakayama/conCafe.png";
 export { default as highSchoolGraduation } from "../assets/nakayama/high-school-graduation.png";
 export { default as recently } from "../assets/nakayama/recently.png";
 export { default as backgroundImagePC } from "../assets/rodeMap-bg-pc.png";
