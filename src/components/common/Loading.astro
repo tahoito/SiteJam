@@ -1,5 +1,5 @@
 ---
-import CharacterUrl from "/src/assets/material/character.svg?url";
+import { Character } from "../index";
 const { text = "Loading..." } = Astro.props;
 ---
 
@@ -18,7 +18,7 @@ const { text = "Loading..." } = Astro.props;
       <div id="progress-marker" class="pointer-events-none absolute left-0 top-0 z-10 -translate-x-1/2 transition-[left] duration-300">
         <div class="flex flex-col items-center">
           <div id="progress-character" class="-translate-y-1/2">
-            <img src={CharacterUrl} alt="" class="z-20 h-[64px] sm:h-[80px] md:h-[100px] w-auto" />
+            <Character class="z-20 h-[64px] sm:h-[80px] md:h-[100px] w-auto" />
           </div>
           <div id="progress-bubble" class="relative -mt-5 sm:-mt-6 md:-mt-7 rounded-[12px] border border-text/30 bg-white px-3 py-2 text-[12px] sm:text-[14px] md:text-[16px] whitespace-nowrap">
             <span id="progress-message">ちょっと待っててね</span>
