@@ -3,20 +3,37 @@ import Pin from "../ui/Pin.astro";
 import backgroundImagePC from "../../assets/rodeMap-bg-pc.png";
 import backgroundImageSP from "../../assets/rodeMap-bg-sp.png";
 import MapText from "../ui/mapText.astro";
+import { Image } from 'astro:assets';
+import character from "../../assets/nakayama/character.png";
+import conCafe from "../../assets/nakayama/conCafe.png";
+import highSchoolGraduation from "../../assets/nakayama/high-school-graduation.png";
+import recently from "../../assets/nakayama/recently.png";
 ---
 
 <!-- pc用 -->
-<div class="md:block hidden bg-cover bg-center w-[1024px] h-[740px] relative" style={`background-image: url(${backgroundImagePC.src})`}>
+<div class="md:block hidden bg-cover bg-center max-w-[1024px] aspect-[1024/740] relative" style={`background-image: url(${backgroundImagePC.src})`}>
   <MapText />
+  <!-- ピン -->
   <Pin year="2024" title="転職" contentText="新しい仕事を探して、現在はバンタンのスタッフとして働いてます。" className="absolute top-0 right-24" />
-  <Pin year="2021" title="就職" contentText="コンカフェのバイトを辞めて、ALSOKに就職し、3年間事務を担当しました。" className="absolute bottom-80 right-100" />
+  <Pin year="2021" title="就職" contentText="コンカフェのバイトを辞めて、ALSOKに就職し、3年間事務を担当しました。" className="absolute bottom-70 right-70" />
   <Pin year="2020" title="高校卒業" contentText="三重県の飯野高校を卒業しました。" className="absolute bottom-20 left-10" />
+  <!-- 画像 -->
+  <Image src={recently} alt="最近の画像" class="absolute top-105 right-0" />
+  <Image src={conCafe} alt="コンカフェの画像" class="absolute top-120 right-185" />
+  <Image src={highSchoolGraduation} alt="高校卒業の画像" class="absolute bottom-80 left-20" />
+  <Image src={character} alt="キャラクターの画像" class="absolute bottom-0 right-0" />
 </div>
 
 <!-- sp用 -->
-<div class="md:hidden block bg-cover bg-center w-fit h-full relative" style={`background-image: url(${backgroundImageSP.src})`}>
+<div class="md:hidden block bg-cover bg-center w-[100vw] h-[100vh] relative" style={`background-image: url(${backgroundImageSP.src})`}>
   <MapText />
+  <!-- ピン -->
   <Pin year="2024" title="転職" contentText="新しい仕事を探して、現在はバンタンのスタッフとして働いてます。" className="absolute top-0 right-24" />
   <Pin year="2021" title="就職" contentText="コンカフェのバイトを辞めて、ALSOKに就職し、3年間事務を担当しました。" className="absolute bottom-80 right-100" />
   <Pin year="2020" title="高校卒業" contentText="三重県の飯野高校を卒業しました。" className="absolute bottom-20 left-10" />
+  <!-- 画像 -->
+  <Image src={recently} alt="最近の画像" class="absolute top-0 right-0" />
+  <Image src={conCafe} alt="コンカフェの画像" class="absolute top-0 right-0" />
+  <Image src={highSchoolGraduation} alt="高校卒業の画像" class="absolute top-0 right-0" />
+  <Image src={character} alt="キャラクターの画像" class="absolute top-0 right-0" />
 </div>
