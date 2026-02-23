@@ -43,3 +43,9 @@
     color: var(--color-text);
   }
 }
+
+body.loading-lock {
+  overflow: hidden;
+  height: 100vh;
+  touch-action: none;
+}
